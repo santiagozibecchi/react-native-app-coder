@@ -1,0 +1,1 @@
+* Lógica reutilizable a lo largo de la app
