@@ -1,15 +1,21 @@
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { BottomTabNavigator } from './src/navigation/BottomTabNavigator';
-
-
+import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { NavigatorContainer } from './src/navigation/NavigatorContainer';
 
 export default function App() {
   return (
-    <NavigationContainer>
-        <BottomTabNavigator />
-    </NavigationContainer>
+    <SafeAreaView style={styles.container}>
+      <NavigatorContainer />
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+    flex: 1,
+    backgroundColor: "black",
+  },
+})
+
 
 
