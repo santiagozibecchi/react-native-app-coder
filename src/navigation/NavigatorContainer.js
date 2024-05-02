@@ -6,5 +6,5 @@ export const NavigatorContainer = () => {
         <NavigationContainer>
             <BottomTabNavigator />
         </NavigationContainer>
-      )
+    )
 }

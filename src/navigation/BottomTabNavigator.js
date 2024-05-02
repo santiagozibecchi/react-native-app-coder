@@ -1,6 +1,6 @@
+import { PlacesStackNavigator } from './PlacesStackNavigator';
 import { HomeScreen } from '../screens/home/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { PlacesScreen } from '../screens/places/PlacesScreen';
 import { UserProfileScreen } from '../screens/profile/UserProfileScreen';
 import { View } from 'react-native';
 import { Ionicons, MaterialIcons, AntDesign } from "@expo/vector-icons"
@@ -31,8 +31,8 @@ export const BottomTabNavigator = () => {
             />
 
             <Stack.Screen
-                name="PlacesScreen"
-                component={PlacesScreen}
+                name="PlacesStack"
+                component={PlacesStackNavigator}
                 options={{
                     title: "",
                     tabBarIcon: ({ focused }) => {
