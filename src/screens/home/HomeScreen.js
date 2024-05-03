@@ -1,9 +1,11 @@
 import { View, Text } from 'react-native'
+import { PrincipalLayout } from '../../components/layout/PrincipalLayout'
+import { Title } from '../../components/ui/Title'
 
 export const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
+    <PrincipalLayout>
+      <Title text='Hola mundo Ahre' />
+    </PrincipalLayout>
   )
 }
