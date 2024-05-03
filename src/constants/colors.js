@@ -11,4 +11,16 @@ export const colors = {
 export const globlalColors = {
     text: colors.primary,
     background: colors.light,
+
+    btnPrimaryText: {
+        color: colors.ligthBrown,
+        fontSize: 16,
+      },
+    btnPrimary: {
+        backgroundColor: colors.primary,
+        borderRadius: 10,
+        padding: 10,
+        alignItems: "center",
+    },
+    buttonTextColor: colors.ligthBrown
 }
