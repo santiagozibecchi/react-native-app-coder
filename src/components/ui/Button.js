@@ -14,13 +14,10 @@ export const Button = ({ text, style, onPress }) => {
             ])}
             onPress={onPress}
         >
-            <Text style={[
-                globlalColors.btnPrimaryText,
-                {
-                    color: globlalColors.buttonTextColor,
-                }
-
-            ]}>{ text }</Text>
+            <Text style={{
+                ...globlalColors.btnPrimaryText,
+                color: colors.buttonTextColor,
+            }}>{ text }</Text>
         </Pressable>
     )
 }

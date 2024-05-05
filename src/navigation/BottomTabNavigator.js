@@ -25,7 +25,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <AntDesign name="home" size={24} color={focused ?  colors.primary : colors.light} />
+                                <AntDesign name="home" size={24} color={focused ?  colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
@@ -39,7 +39,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <MaterialIcons name="place" size={30} color={focused ? colors.primary : colors.light} />
+                                <MaterialIcons name="place" size={30} color={focused ? colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
@@ -51,7 +51,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <Ionicons name="person-circle-outline" size={24} color={focused ?  colors.primary : colors.light} />
+                                <Ionicons name="person-circle-outline" size={24} color={focused ?  colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
@@ -63,7 +63,7 @@ export const BottomTabNavigator = () => {
 
 const styles = StyleSheet.create({
     tabContainer: {
-        backgroundColor: colors.mediumBrown,
+        backgroundColor: colors.primary,
         borderRadius: 15,
         bottom: 5,
         marginHorizontal: 5,

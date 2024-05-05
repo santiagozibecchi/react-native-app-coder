@@ -1,15 +1,25 @@
-import { useNavigation } from '@react-navigation/native'
-import { View, Text, Button } from 'react-native'
-import { PLACE_COMPONENT } from './place_component';
+import { useNavigation } from "@react-navigation/native";
+import { PrincipalLayout } from "../../components/layout/PrincipalLayout";
+import { Button } from "../../components/ui/Button";
+import { Title } from "../../components/ui/Title";
+import { PLACE_COMPONENT } from "./place_component";
+
 
 export const PlaceDetailScreen = () => {
 
   const navigation = useNavigation();
 
-  return (
-    <View>
-      <Text>PlaceDetailScreen</Text>
-      <Button title='Volver atrás' onPress={() => navigation.navigate(PLACE_COMPONENT.list_category_screen)} />
-    </View>
-  )
-}
+    return (
+      <PrincipalLayout>
+        <Title text="Detalles de los lugares" />
+  
+        <Button
+          text="Ver detalles"
+          onPress={() => navigation.navigate(PLACE_COMPONENT.main_screen)}
+          style={{
+            width: 200
+          }}
+        />
+      </PrincipalLayout>
+    )
+  }

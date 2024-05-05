@@ -1,26 +1,44 @@
 export const colors = {
-    primary: '#283618',
-    secondary: '#606C38',
-    ligthBrown: '#FEFAE0',
-    mediumBrown: '#DDA15E',
-    darkBrown: '#BC6C25',
+    primary: "#de9247",
+    text: "black",
 
-    light: '#efeaea',
+    background: "#F3F2F7",
+    itemSelected: "white",
+    buttonTextColor: "white",
+};
+
+export const lightColors = {
+    primary: "#de9247",
+    text: "black",
+
+    background: "#F3F2F7",
+    buttonTextColor: "white",
+};
+
+export const darkColors = {
+    primary: "#de9247",
+    text: "white",
+
+    background: "#283618",
+    buttonTextColor: "white",
 }
 
 export const globlalColors = {
-    text: colors.primary,
-    background: colors.light,
-
+    title: {
+        fontSize: 30,
+        fontWeight: "bold",
+    },
     btnPrimaryText: {
-        color: colors.ligthBrown,
         fontSize: 16,
-      },
+    },
     btnPrimary: {
-        backgroundColor: colors.primary,
         borderRadius: 10,
         padding: 10,
         alignItems: "center",
     },
-    buttonTextColor: colors.ligthBrown
+    mainContainer: {
+        padding: 15,
+        flex: 1,
+    }
 }
+

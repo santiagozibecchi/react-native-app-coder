@@ -1,10 +1,17 @@
 import { Text, StyleSheet } from 'react-native'
-import { globlalColors } from '../../constants/colors'
+import { colors, globlalColors } from '../../constants/colors'
 
 export const Title = ({ text = "", customStyles }) => {
-  return (
-      <Text style={[styles.text, customStyles]}>{ text }</Text>
-  )
+    return (
+        <Text
+            style={[
+                globlalColors.title,
+                { color: colors.text },
+                customStyles]}
+        >
+            {text}
+        </Text>
+    )
 }
 
 const styles = StyleSheet.create({
