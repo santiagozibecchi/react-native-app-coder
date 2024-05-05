@@ -1,23 +1,20 @@
-import { useNavigation } from '@react-navigation/native'
-import { PLACE_COMPONENT } from './place_component';
+import { categories } from '../../data/data';
 import { PrincipalLayout } from '../../components/layout/PrincipalLayout';
+import { View } from 'react-native';
+import { CategoryGrid } from '../../components/categories/CategoryGrid';
 import { Title } from '../../components/ui/Title';
-import { Button } from '../../components/ui/Button';
+
 
 export const PlacesScreen = () => {
-    const navigation = useNavigation();
 
     return (
         <PrincipalLayout>
-            <Title text="Lugares (Acá están las categorías)" />
+            <Title text='Categorías disponibles' center />
+            <View style={{ height: 10 }} />
 
-            <Button
-                text="Ir a la lista de lugares"
-                onPress={() => navigation.navigate(PLACE_COMPONENT.list_category_screen)}
-                style={{
-                    width: 200
-                }}
-            />
+            <CategoryGrid categories={categories} />
+
+            <View style={{ height: 25 }} />
         </PrincipalLayout>
     )
 }
