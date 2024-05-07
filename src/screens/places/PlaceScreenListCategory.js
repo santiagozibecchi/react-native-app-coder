@@ -29,12 +29,6 @@ export const PlaceScreenListCategory = ({ route }) => {
   return (
     <PrincipalLayout>
       <Title text={`Lista de ${Util.expandCategoryData(category).title}`} />
-
-      {/* <View>
-          <Text>
-            {JSON.stringify(places, null, 2)}
-          </Text>
-        </View> */}
       {
         (places.length === 0)
           ? (<Notice
@@ -42,7 +36,6 @@ export const PlaceScreenListCategory = ({ route }) => {
             onPress={() => navigation.goBack()}
           />)
           :
-          // <View style={{borderRadius: 15, flex: 1}}>
             <FlatList
               data={places}
               keyExtractor={(place) => place.id.toString()}
@@ -50,17 +43,7 @@ export const PlaceScreenListCategory = ({ route }) => {
               showsVerticalScrollIndicator={false}
               
             />
-          // </View>
       }
-
-
-      {/* <Button
-        text="Ir a los detalles"
-        onPress={() => navigation.navigate(PLACE_COMPONENT.detail_screen)}
-        style={{
-          width: 200
-        }}
-      /> */}
     </PrincipalLayout>
   )
 }
