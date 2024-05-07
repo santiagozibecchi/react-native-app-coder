@@ -27,7 +27,7 @@ export const PlaceScreenListCategory = ({ route }) => {
 
 
   return (
-    <PrincipalLayout>
+    <PrincipalLayout style={{marginBottom: 40}}>
       <Title text={`Lista de ${Util.expandCategoryData(category).title}`} />
       {
         (places.length === 0)
@@ -41,7 +41,6 @@ export const PlaceScreenListCategory = ({ route }) => {
               keyExtractor={(place) => place.id.toString()}
               renderItem={(({ item }) => <PlaceList place={item} />)}
               showsVerticalScrollIndicator={false}
-              
             />
       }
     </PrincipalLayout>

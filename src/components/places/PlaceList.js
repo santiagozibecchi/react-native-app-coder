@@ -43,15 +43,15 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
     imageContainer: {
-        borderRadius: 18,
+        borderRadius: 15,
         shadowColor: "#000",
         shadowOffset: {
-            width: 0,
+            width: 3,
             height: 3,
         },
-        shadowOpacity: 0.24,
-        shadowRadius: 18,
-        elevation: 9,
+        shadowOpacity: 0.3,
+        shadowRadius: 15,
+        elevation: 5,
     },
     image: {
         borderBottomLeftRadius: 15,
