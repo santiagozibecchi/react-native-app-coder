@@ -7,8 +7,6 @@ export const PlaceDetailScreen = ({ route }) => {
 
   const { place } = route.params;
 
-  console.log({place});
-
     return (
         <ScrollView>
         <PlaceHeader
@@ -16,9 +14,7 @@ export const PlaceDetailScreen = ({ route }) => {
           images={place.images}
         />
 
-        <PlaceDetails
-        
-        />
+        <PlaceDetails {...place} />
         
         </ScrollView>
     )
