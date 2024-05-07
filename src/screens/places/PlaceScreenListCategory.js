@@ -27,7 +27,7 @@ export const PlaceScreenListCategory = ({ route }) => {
 
 
   return (
-    <PrincipalLayout style={{marginBottom: 40}}>
+    <PrincipalLayout style={{ marginBottom: 40 }}>
       <Title text={`Lista de ${Util.expandCategoryData(category).title}`} />
       {
         (places.length === 0)
