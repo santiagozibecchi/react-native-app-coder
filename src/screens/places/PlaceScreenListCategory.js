@@ -5,7 +5,7 @@ import { Title } from "../../components/ui/Title"
 import { PLACE_COMPONENT } from "./place_component"
 import { placesInfo } from "../../data/data"
 import { useEffect, useState } from "react"
-import { FlatList, ScrollView, Text } from "react-native"
+import { FlatList, ScrollView, Text, View } from "react-native"
 import { Util } from "../../utils/utils"
 import { PlaceList } from "../../components/places/PlaceList"
 import { Notice } from "../../components/ui/Notice"
@@ -38,14 +38,19 @@ export const PlaceScreenListCategory = ({ route }) => {
       {
         (places.length === 0)
           ? (<Notice
-            title={`No se han encontrado lugares para la categoría ${Util.expandCategoryData(category).title}`}
+            title={`No se han encontrado lugares para la categoría: ${Util.expandCategoryData(category).title}`}
             onPress={() => navigation.goBack()}
           />)
-          : <FlatList
-            data={places}
-            keyExtractor={(place) => place.id.toString()}
-            renderItem={(({ item }) => <PlaceList place={item} />)}
-          />
+          :
+          // <View style={{borderRadius: 15, flex: 1}}>
+            <FlatList
+              data={places}
+              keyExtractor={(place) => place.id.toString()}
+              renderItem={(({ item }) => <PlaceList place={item} />)}
+              showsVerticalScrollIndicator={false}
+              
+            />
+          // </View>
       }
 
 

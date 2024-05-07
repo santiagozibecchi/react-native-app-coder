@@ -110,9 +110,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/club_1.jpg",
-            "https://example.com/images/club_2.jpg",
-            "https://example.com/images/club_3.jpg"
+            "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1650203855243-102ef3ba1f43?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.7,
         price: 0,
@@ -129,9 +129,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/fiesta_1.jpg",
-            "https://example.com/images/fiesta_2.jpg",
-            "https://example.com/images/fiesta_3.jpg"
+            "https://images.unsplash.com/photo-1650203855243-102ef3ba1f43?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.5,
         price: 0,
@@ -148,9 +148,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/electro_1.jpg",
-            "https://example.com/images/electro_2.jpg",
-            "https://example.com/images/electro_3.jpg"
+            "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1650203855243-102ef3ba1f43?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.6,
         price: 0,
@@ -167,9 +167,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/salsa_1.jpg",
-            "https://example.com/images/salsa_2.jpg",
-            "https://example.com/images/salsa_3.jpg"
+            "https://images.unsplash.com/photo-1650203855243-102ef3ba1f43?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.7,
         price: 0,
@@ -186,9 +186,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/ritmo_1.jpg",
-            "https://example.com/images/ritmo_2.jpg",
-            "https://example.com/images/ritmo_3.jpg"
+            "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1650203855243-102ef3ba1f43?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.8,
         price: 0,
@@ -205,9 +205,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/glamour_1.jpg",
-            "https://example.com/images/glamour_2.jpg",
-            "https://example.com/images/glamour_3.jpg"
+            "https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1687511844598-165c1fc387cc?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1650203855243-102ef3ba1f43?q=80&w=1752&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.9,
         price: 0,
@@ -604,9 +604,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_bohemio_1.jpg",
-            "https://example.com/images/bar_bohemio_2.jpg",
-            "https://example.com/images/bar_bohemio_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.8,
         price: 0,
@@ -623,9 +623,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_tango_1.jpg",
-            "https://example.com/images/bar_tango_2.jpg",
-            "https://example.com/images/bar_tango_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.7,
         price: 0,
@@ -642,9 +642,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_vintage_1.jpg",
-            "https://example.com/images/bar_vintage_2.jpg",
-            "https://example.com/images/bar_vintage_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.6,
         price: 0,
@@ -661,9 +661,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_mar_1.jpg",
-            "https://example.com/images/bar_mar_2.jpg",
-            "https://example.com/images/bar_mar_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.9,
         price: 0,
@@ -680,9 +680,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_plaza_1.jpg",
-            "https://example.com/images/bar_plaza_2.jpg",
-            "https://example.com/images/bar_plaza_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.5,
         price: 0,
@@ -699,9 +699,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_luna_1.jpg",
-            "https://example.com/images/bar_luna_2.jpg",
-            "https://example.com/images/bar_luna_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.7,
         price: 0,
@@ -718,9 +718,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_jazz_1.jpg",
-            "https://example.com/images/bar_jazz_2.jpg",
-            "https://example.com/images/bar_jazz_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.8,
         price: 0,
@@ -737,9 +737,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_ribera_1.jpg",
-            "https://example.com/images/bar_ribera_2.jpg",
-            "https://example.com/images/bar_ribera_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.9,
         price: 0,
@@ -756,9 +756,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_sol_1.jpg",
-            "https://example.com/images/bar_sol_2.jpg",
-            "https://example.com/images/bar_sol_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.6,
         price: 0,
@@ -775,9 +775,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/bar_oeste_1.jpg",
-            "https://example.com/images/bar_oeste_2.jpg",
-            "https://example.com/images/bar_oeste_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://plus.unsplash.com/premium_photo-1675857966676-30fc01198536?q=80&w=1636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         ],
         rating: 4.5,
         price: 0,

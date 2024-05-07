@@ -5,9 +5,12 @@ import { Title } from "../../components/ui/Title";
 import { PLACE_COMPONENT } from "./place_component";
 
 
-export const PlaceDetailScreen = () => {
+export const PlaceDetailScreen = ({ route }) => {
 
+  const { place } = route.params;
   const navigation = useNavigation();
+
+  console.log({place});
 
     return (
       <PrincipalLayout>
