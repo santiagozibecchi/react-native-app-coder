@@ -5,6 +5,7 @@ export const colors = {
     background: "#F3F2F7",
     itemSelected: "white",
     buttonTextColor: "white",
+    warning: "#e28527"
 };
 
 export const lightColors = {
@@ -13,6 +14,7 @@ export const lightColors = {
 
     background: "#F3F2F7",
     buttonTextColor: "white",
+    warning: "#e28527"
 };
 
 export const darkColors = {
@@ -21,6 +23,7 @@ export const darkColors = {
 
     background: "#283618",
     buttonTextColor: "white",
+    warning: "#e28527"
 }
 
 export const globlalColors = {
