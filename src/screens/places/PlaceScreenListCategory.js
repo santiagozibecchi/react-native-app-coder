@@ -3,21 +3,59 @@ import { PrincipalLayout } from "../../components/layout/PrincipalLayout"
 import { Button } from "../../components/ui/Button"
 import { Title } from "../../components/ui/Title"
 import { PLACE_COMPONENT } from "./place_component"
+import { placesInfo } from "../../data/data"
+import { useEffect, useState } from "react"
+import { FlatList, ScrollView, Text } from "react-native"
+import { Util } from "../../utils/utils"
+import { PlaceList } from "../../components/places/PlaceList"
+import { Notice } from "../../components/ui/Notice"
 
-export const PlaceScreenListCategory = () => {
+const allPlaces = placesInfo;
+
+export const PlaceScreenListCategory = ({ route }) => {
+  const [places, setPlaces] = useState([]);
+
   const navigation = useNavigation();
+  const { category } = route.params;
+
+  useEffect(() => {
+    const filteredPlaces = allPlaces.filter((place) => {
+      return place.category === category
+    });
+    setPlaces(filteredPlaces);
+  }, [category])
+
 
   return (
     <PrincipalLayout>
-      <Title text="Place List" />
+      <Title text={`Lista de ${Util.expandCategoryData(category).title}`} />
 
-      <Button
+      {/* <View>
+          <Text>
+            {JSON.stringify(places, null, 2)}
+          </Text>
+        </View> */}
+      {
+        (places.length === 0)
+          ? (<Notice
+            title={`No se han encontrado lugares para la categoría ${Util.expandCategoryData(category).title}`}
+            onPress={() => navigation.goBack()}
+          />)
+          : <FlatList
+            data={places}
+            keyExtractor={(place) => place.id.toString()}
+            renderItem={(({ item }) => <PlaceList place={item} />)}
+          />
+      }
+
+
+      {/* <Button
         text="Ir a los detalles"
         onPress={() => navigation.navigate(PLACE_COMPONENT.detail_screen)}
         style={{
           width: 200
         }}
-      />
+      /> */}
     </PrincipalLayout>
   )
 }
