@@ -6,6 +6,7 @@ import * as ExpoLibrary from "expo-media-library";
 import { useDispatch, useSelector } from "react-redux";
 import { setCameraImage } from "../../features/user/userSlice";
 import { useGetProfileImageQuery, usePostProfileImageMutation } from "../../services/profileService";
+import { Title } from "../../components/ui/Title";
 
 export const ImageSelectorScreen = ({ navigation }) => {
     const defaultImageRoute = "../../../assets/images/defaultProfile.png";
@@ -99,16 +100,20 @@ export const ImageSelectorScreen = ({ navigation }) => {
     };
 
     return (
-        <View style={styles.container}>
+        <>
             {(base64Image || base64ImageFromDB) ? (
-                <>
+                <View style={styles.container}>
+                    <Title text="Elige una foto de perfil" center customStyles={{ fontSize: 26 }} />
                     <Image source={{ uri: base64Image || base64ImageFromDB?.image }} style={styles.profileImage} />
-                    <Button text="Sacar otra foto" onPress={pickImageFromPhoneCamera} />
-                    <Button text="Seleccionar una foto de la galería" onPress={pickImageFromImageGallery} />
-                    <Button text="Guardar Foto" onPress={confirmToSaveImage} />
-                </>
+                    <View style={styles.btnContainer}>
+                        <Button text="Sacar otra foto" onPress={pickImageFromPhoneCamera} />
+                        <Button text="Seleccionar una foto de la galería" onPress={pickImageFromImageGallery} />
+                        <Button text="Guardar Foto" onPress={confirmToSaveImage} />
+                    </View>
+                </View>
             ) : (
-                <>
+                <View style={styles.container}>
+                    <Title text="Elige una foto de perfil" center customStyles={{ fontSize: 26 }} />
                     <View style={styles.noPhotoContainer}>
                         <Image
                             source={require(defaultImageRoute)}
@@ -116,10 +121,12 @@ export const ImageSelectorScreen = ({ navigation }) => {
                             resizeMode="cover"
                         />
                     </View>
-                    <Button text="Sacar una foto" onPress={pickImageFromPhoneCamera} />
-                </>
+                    <View style={styles.btnContainer}>
+                        <Button text="Sacar una foto" onPress={pickImageFromPhoneCamera} />
+                    </View>
+                </View>
             )}
-        </View>
+        </>
     );
 };
 
@@ -128,9 +135,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "flex-start",
-        gap: 20,
         marginTop: 20,
+        gap: 20
     },
     profileImage: {
         width: 270,
@@ -145,4 +151,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    btnContainer: {
+        gap: 10
+    }
 });
