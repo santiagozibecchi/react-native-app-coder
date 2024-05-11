@@ -32,6 +32,7 @@ export const LoginScreen = () => {
         email: signInResult.data.email,
         // idToken: ID único del usuario
         idToken: signInResult.data.idToken,
+        localId: signInResult.data.localId,
       }))
     }
   }, [signInResult])
