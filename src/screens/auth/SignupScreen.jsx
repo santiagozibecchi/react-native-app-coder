@@ -53,7 +53,6 @@ export const SignupScreen = () => {
                 case "password":
                     setSignup({...signUp, errorMail: error.message})
                 case "confirmPassword":
-                    console.log("ENTRO");
                     setSignup({...signUp, errorConfirmPassword: error.message})
                 default:
                     break;
