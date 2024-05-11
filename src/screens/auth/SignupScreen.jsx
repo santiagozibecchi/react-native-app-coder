@@ -19,11 +19,13 @@ export const SignupScreen = () => {
         email: "",
         password: "",
         confirmPassword: "",
-        // error messages... could be in another state...
+    });
+
+    const [errorMessage, setErrorMessage] = useState({
         errorMail: "",
         errorPassword: "",
         errorConfirmPassword: "",
-    });
+    })
 
     useEffect(() => {
         if (signUpResult.isSuccess) {
@@ -37,7 +39,6 @@ export const SignupScreen = () => {
     }, [signUpResult])
 
     const handleSignup = () => {
-
         try {
             const validation = signupSchema.validateSync({ email: signUp.email, password: signUp.password, confirmPassword: signUp.confirmPassword });
             triggerSignUp({
@@ -48,12 +49,12 @@ export const SignupScreen = () => {
         } catch (error) {
             switch (error.path) {
                 case "email":
-                    setSignup({...signUp, errorMail: error.message})
+                    setErrorMessage({ ...errorMessage, errorMail: error.message })
                     break;
                 case "password":
-                    setSignup({...signUp, errorMail: error.message})
+                    setErrorMessage({ ...errorMessage, errorMail: error.message })
                 case "confirmPassword":
-                    setSignup({...signUp, errorConfirmPassword: error.message})
+                    setErrorMessage({ ...errorMessage, errorConfirmPassword: error.message })
                 default:
                     break;
             }
@@ -71,26 +72,40 @@ export const SignupScreen = () => {
                 <InputForm
                     placeholder="Email"
                     value={signUp.email}
-                    onChangeText={(text) => handleChange('email', text)}
+                    onChangeText={(text) => {
+                        handleChange('email', text);
+                        errorMessage.errorMail = "";
+                    }}
+                    hasError={!!errorMessage.errorMail}
                 />
-                {signUp.errorMail ? <Text style={styles.error}>{signUp.errorMail}</Text> : null}
+                {errorMessage.errorMail ? <Text style={styles.error}>{errorMessage.errorMail}</Text> : null}
 
                 <InputForm
                     placeholder="Contraseña"
                     secureTextEntry
                     value={signUp.password}
-                    onChangeText={(text) => handleChange('password', text)}
+                    onChangeText={(text) => {
+                        handleChange('password', text);
+                        errorMessage.errorPassword = "";
+                    }}
+                    hasError={!!errorMessage.errorPassword}
+
                 />
-                {signUp.errorPassword ? <Text style={styles.error}>{signUp.errorPassword}</Text> : null}
+                {errorMessage.errorPassword ? <Text style={styles.error}>{errorMessage.errorPassword}</Text> : null}
 
                 <InputForm
                     placeholder="Confirmar contraseña"
                     secureTextEntry
                     value={signUp.confirmPassword}
-                    onChangeText={(text) => handleChange('confirmPassword', text)}
+                    onChangeText={(text) => {
+                        handleChange('confirmPassword', text);
+                        errorMessage.errorConfirmPassword = "";
+                    }}
+                    hasError={!!errorMessage.errorConfirmPassword}
+
                 />
-                {signUp.errorConfirmPassword ? <Text style={styles.error}>{signUp.errorConfirmPassword}</Text> : null}
-                
+                {errorMessage.errorConfirmPassword ? <Text style={styles.error}>{errorMessage.errorConfirmPassword}</Text> : null}
+
                 <SubmitButton
                     title="Signup"
                     onPress={handleSignup}

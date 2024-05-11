@@ -1,13 +1,16 @@
+import { useRef } from "react";
 import { StyleSheet, TextInput } from "react-native";
 
-export const InputForm = ({ placeholder, value, onChangeText, secureTextEntry }) => {
+export const InputForm = ({ placeholder, value, onChangeText, secureTextEntry, hasError }) => {
     return (
         <TextInput
-            style={styles.input}
+            style={[styles.input, hasError ? styles.error : null]}
             placeholder={placeholder}
             value={value}
             onChangeText={onChangeText}
             secureTextEntry={secureTextEntry}
+            autoCapitalize="none"
+            autoCorrect={false}
         />
     );
 };
@@ -21,4 +24,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 5
     },
+    error: {
+        borderBottomColor: "red",
+        borderBottomWidth: 1.5
+    }
 });

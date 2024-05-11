@@ -67,7 +67,11 @@ export const LoginScreen = () => {
         <InputForm
           placeholder="Email"
           value={signIn.email}
-          onChangeText={(text) => handleChange('email', text)}
+          onChangeText={(text) => {
+            handleChange('email', text);
+            errorMessage.errorMail = ""
+          }}
+          hasError={!!errorMessage.errorMail}
         />
         {errorMessage.errorMail ? <Text style={styles.error}>{errorMessage.errorMail}</Text> : null}
 
@@ -75,7 +79,11 @@ export const LoginScreen = () => {
           placeholder="Contraseña"
           secureTextEntry
           value={signIn.password}
-          onChangeText={(text) => handleChange('password', text)}
+          onChangeText={(text) => {
+            handleChange('password', text);
+            errorMessage.errorPassword = ""
+          }}
+          hasError={!!errorMessage.errorPassword}
         />
         {errorMessage.errorPassword ? <Text style={styles.error}>{errorMessage.errorPassword}</Text> : null}
 
