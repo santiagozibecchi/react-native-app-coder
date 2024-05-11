@@ -9,9 +9,18 @@ export const placeAPI = createApi({
         getCategories: builder.query({
             query: () => `categories.json`,
         }),
+        getPlacesByCategory: builder.query({
+            query: (category) =>
+                `places.json?orderBy="category"&equalTo="${category}"`,
+            transformResponse: (response) => {
+                const responseTransformed = Object.values(response)
+                return responseTransformed;
+            },
+        }),
     }),
 })
 
 export const {
     useGetCategoriesQuery,
+    useGetPlacesByCategoryQuery,
 } = placeAPI

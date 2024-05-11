@@ -5,8 +5,6 @@ import { Util } from '../../utils/utils';
 
 export const CategoryGrid = ({ categories, title }) => {
 
-    // TODO: navigation.navigate(PLACE_COMPONENT.list_category_screen)}
-
     return (
         <View style={{
             flex: 1,

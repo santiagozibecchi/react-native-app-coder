@@ -1,28 +1,22 @@
 import { useNavigation } from "@react-navigation/native"
 import { PrincipalLayout } from "../../components/layout/PrincipalLayout"
 import { Title } from "../../components/ui/Title"
-import { placesInfo } from "../../data/data"
-import { useEffect, useState } from "react"
 import { FlatList } from "react-native"
 import { Util } from "../../utils/utils"
 import { PlaceList } from "../../components/places/PlaceList"
 import { Notice } from "../../components/ui/Notice"
-
-const allPlaces = placesInfo;
+import { useGetPlacesByCategoryQuery } from "../../services/placeService"
 
 export const PlaceScreenListCategory = ({ route }) => {
-  const [places, setPlaces] = useState([]);
-
   const navigation = useNavigation();
   const { category } = route.params;
 
-  useEffect(() => {
-    const filteredPlaces = allPlaces.filter((place) => {
-      return place.category === category
-    });
-    setPlaces(filteredPlaces);
-  }, [category])
+  const { data: places, isLoading } = useGetPlacesByCategoryQuery(category);
 
+  if (isLoading) {
+    // TODO componente loading
+    return;
+  }
 
   return (
     <PrincipalLayout style={{ marginBottom: 40 }}>
