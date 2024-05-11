@@ -16,7 +16,7 @@ export const ImageSelectorScreen = ({ navigation }) => {
 
     const { localId } = useSelector((state) => state.auth.value);
     const dispatch = useDispatch();
-    
+
     const { data: base64ImageFromDB } = useGetProfileImageQuery(localId);
     const [triggerPostImage, _] = usePostProfileImageMutation();
 
@@ -50,29 +50,61 @@ export const ImageSelectorScreen = ({ navigation }) => {
         }
     };
 
+    const verifyGalleryPermissions = async () => {
+        const { granted } = await ImagePicker.requestMediaLibraryPermissionsAsync()
+        return granted;
+    }
+
+    const pickImageFromImageGallery = async () => {
+        try {
+            setIsImageFromCamera(false);
+            const permissionGallery = await verifyGalleryPermissions()
+            if (permissionGallery) {
+                const result = await ImagePicker.launchImageLibraryAsync({
+                    base64: true,
+                    allowsEditing: true,
+                    aspect: [1, 1],
+                    mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                    quality: 0.2,
+                });
+                if (!result.canceled) {
+                    const base64Image = `data:image/jpeg;base64,${result.assets[0].base64}`
+                    setImage(base64Image)
+                }
+            }
+        } catch (error) {
+            // TODO: modal para mostrar errores al usuario
+            console.log(error)
+        }
+    }
+
+    const saveImageInPhoneGallery = async () => {
+        await ExpoLibrary.createAssetAsync(imageURI);
+    }
+
     const confirmToSaveImage = async () => {
         try {
             // seteamos la imagen en el estado global de redux para poder usarla a lo largo de toda la app
-            dispatch(setCameraImage(base64Image))
+            dispatch(setCameraImage(base64Image));
             // la subimos a RTF
-            triggerPostImage({ base64Image, localId })
+            triggerPostImage({ base64Image, localId });
             if (isImageFromCamera) {
-                const result = await ExpoLibrary.createAssetAsync(imageURI)
+                saveImageInPhoneGallery();
             }
-            navigation.goBack()
+            navigation.goBack();
         } catch (error) {
             // TODO: modal para mostrar errores al usuario
             console.log(error);
         }
     };
 
-
     return (
         <View style={styles.container}>
-            {( base64Image || base64ImageFromDB ) ? (
+            {(base64Image || base64ImageFromDB) ? (
                 <>
                     <Image source={{ uri: base64Image || base64ImageFromDB?.image }} style={styles.profileImage} />
                     <Button text="Sacar otra foto" onPress={pickImageFromPhoneCamera} />
+                    <Button text="Seleccionar una foto de la galería" onPress={pickImageFromImageGallery} />
                     <Button text="Guardar Foto" onPress={confirmToSaveImage} />
                 </>
             ) : (
