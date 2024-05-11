@@ -1,8 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack"
 import { StyleSheet } from "react-native"
 import { PROFILE_COMPONENT } from "../screens/profile/place_component"
-import { UserProfileScreen } from "../screens/profile/UserProfileScreen"
-import { ImageSelectorScreen } from "../screens/profile/ImageSelectorScreen"
+import { UserProfileScreen, ImageSelectorScreen } from "../screens/profile"
 
 const Stack = createStackNavigator()
 
