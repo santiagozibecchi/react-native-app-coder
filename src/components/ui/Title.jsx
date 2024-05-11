@@ -16,11 +16,3 @@ export const Title = ({ text = "", center = false, customStyles }) => {
         </Text>
     )
 }
-
-const styles = StyleSheet.create({
-    text: {
-        fontSize: 24,
-        fontWeight: "600",
-        color: globlalColors.text
-    }
-})
