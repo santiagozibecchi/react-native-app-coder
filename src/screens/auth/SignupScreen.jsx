@@ -1,16 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { InputForm } from '../../components/ui/InputForm';
 import { SubmitButton } from '../../components/ui/SubmitButton';
 import { useSignUpMutation } from '../../services/authService';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../../features/user/userSlice';
+import { signupSchema } from '../../utils/validations/authSchema';
 
 export const SignupScreen = () => {
 
     const navigation = useNavigation();
-
-    const [triggerSignUp, result] = useSignUpMutation();
-
+    // dispatch: disparar las acciones que se encuentras difinidas en los reducers
+    const dispatch = useDispatch();
+    const [triggerSignUp, signUpResult] = useSignUpMutation();
+    
     const [signUp, setSignup] = useState({
         email: "",
         errorMail: "",
@@ -19,6 +23,17 @@ export const SignupScreen = () => {
         confirmPassword: "",
         errorConfirmPassword: "",
     });
+
+    useEffect(() => {
+        if (signUpResult.isSuccess) {
+            // seteamos el estado global del usuario
+            dispatch(setUser({
+                email: signUpResult.data.email,
+                // idToken: ID único del usuario
+                idToken: signUpResult.data.idToken,
+            }))
+        }
+    }, [signUpResult])
 
     const handleSignup = () => {
         triggerSignUp({
