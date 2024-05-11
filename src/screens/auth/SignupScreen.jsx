@@ -14,13 +14,14 @@ export const SignupScreen = () => {
     // dispatch: disparar las acciones que se encuentras difinidas en los reducers
     const dispatch = useDispatch();
     const [triggerSignUp, signUpResult] = useSignUpMutation();
-    
+
     const [signUp, setSignup] = useState({
         email: "",
-        errorMail: "",
         password: "",
-        errorPassword: "",
         confirmPassword: "",
+        // error messages... could be in another state...
+        errorMail: "",
+        errorPassword: "",
         errorConfirmPassword: "",
     });
 
@@ -36,11 +37,28 @@ export const SignupScreen = () => {
     }, [signUpResult])
 
     const handleSignup = () => {
-        triggerSignUp({
-            email: signUp.email,
-            password: signUp.password,
-            returnSecureToken: true,
-        })
+
+        try {
+            const validation = signupSchema.validateSync({ email: signUp.email, password: signUp.password, confirmPassword: signUp.confirmPassword });
+            triggerSignUp({
+                email: signUp.email,
+                password: signUp.password,
+                returnSecureToken: true,
+            });
+        } catch (error) {
+            switch (error.path) {
+                case "email":
+                    setSignup({...signUp, errorMail: error.message})
+                    break;
+                case "password":
+                    setSignup({...signUp, errorMail: error.message})
+                case "confirmPassword":
+                    console.log("ENTRO");
+                    setSignup({...signUp, errorConfirmPassword: error.message})
+                default:
+                    break;
+            }
+        }
     };
 
     const handleChange = (key, value) => {
@@ -73,7 +91,7 @@ export const SignupScreen = () => {
                     onChangeText={(text) => handleChange('confirmPassword', text)}
                 />
                 {signUp.errorConfirmPassword ? <Text style={styles.error}>{signUp.errorConfirmPassword}</Text> : null}
-
+                
                 <SubmitButton
                     title="Signup"
                     onPress={handleSignup}
