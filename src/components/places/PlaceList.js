@@ -27,7 +27,7 @@ export const PlaceList = ({ place }) => {
                         text="Ver más"
                         fontSize={14}
                         style={styles.button}
-                        onPress={() => navigation.navigate(PLACE_COMPONENT.detail_screen, {place, place})}
+                        onPress={() => navigation.navigate(PLACE_COMPONENT.detail_screen, { placeId: place.id })}
                     />
                 </View>
             </View>

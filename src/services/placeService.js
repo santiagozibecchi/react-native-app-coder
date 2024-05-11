@@ -17,10 +17,21 @@ export const placeAPI = createApi({
                 return responseTransformed;
             },
         }),
+        getPlaceById: builder.query({
+            query: (id) => `places.json?orderBy="id"&equalTo=${id}`,
+            transformResponse: (response) => {
+                const responseTransformed = Object.values(response)
+                if (responseTransformed.length) {
+                    return responseTransformed[0]
+                }
+                return null
+            }
+        }),
     }),
 })
 
 export const {
     useGetCategoriesQuery,
     useGetPlacesByCategoryQuery,
+    useGetPlaceByIdQuery,
 } = placeAPI

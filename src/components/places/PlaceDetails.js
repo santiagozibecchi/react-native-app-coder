@@ -1,9 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import { TextSection } from '../ui/TextSection';
 
-
-
-
 export const PlaceDetails = (props) => {
     const {
         description,
@@ -28,7 +25,7 @@ export const PlaceDetails = (props) => {
     return (
         <View style={styles.container}>
             {
-                uiTextSection.map((section) => (<TextSection {...section} />))
+                uiTextSection.map((section) => (<TextSection key={ section.section } {...section} />))
             }
 
             {/* TODO: Galeria de imagenes */}
