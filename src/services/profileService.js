@@ -12,11 +12,11 @@ export const profileAPI = createApi({
             providesTags: ['profileImageGet']
         }),
         postProfileImage: builder.mutation({
-            query: ({image, localId}) => ({
+            query: ({base64Image, localId}) => ({
                 url: `profileImages/${localId}.json`,
                 method: "PUT",
                 body: {
-                    image: image
+                    image: base64Image
                 },
             }),
             // Invalidates will trigger a refetch on profileImageGet, so will execute getProfileImage and update the state
