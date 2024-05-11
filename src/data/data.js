@@ -72,9 +72,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/teatro_1.jpg",
-            "https://example.com/images/teatro_2.jpg",
-            "https://example.com/images/teatro_3.jpg"
+            "https://plus.unsplash.com/premium_photo-1684923603944-3eb2812a5660?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fHRoZWF0ZXJzfGVufDB8fDB8fHww",
+            "https://plus.unsplash.com/premium_photo-1684923604035-93b39a3e6375?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDF8fHRoZWF0ZXJzfGVufDB8fDB8fHww",
+            "https://plus.unsplash.com/premium_photo-1684923604567-4a26ff4699ad?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1pbi1zYW1lLXNlcmllc3wxfHx8ZW58MHx8fHx8"
         ],
         rating: 4.8,
         price: 0,
@@ -91,9 +91,9 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/monumento_1.jpg",
-            "https://example.com/images/monumento_2.jpg",
-            "https://example.com/images/monumento_3.jpg"
+            "https://www.argentina.gob.ar/sites/default/files/monumentobanderacnm.jpg",
+            "https://www.argentina.gob.ar/sites/default/files/monumentobanderacnm1.jpg",
+            "https://www.argentina.gob.ar/sites/default/files/monumentobanderacnm12.jpg"
         ],
         rating: 4.6,
         price: 0,
@@ -839,9 +839,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_libertad_1.jpg",
-            "https://example.com/images/plaza_libertad_2.jpg",
-            "https://example.com/images/plaza_libertad_3.jpg"
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
         ],
         rating: 4.9,
         price: 0,
@@ -858,9 +860,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_flores_1.jpg",
-            "https://example.com/images/plaza_flores_2.jpg",
-            "https://example.com/images/plaza_flores_3.jpg"
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
         ],
         rating: 4.8,
         price: 0,
@@ -877,9 +881,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_sol_1.jpg",
-            "https://example.com/images/plaza_sol_2.jpg",
-            "https://example.com/images/plaza_sol_3.jpg"
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
         ],
         rating: 4.7,
         price: 0,
@@ -896,9 +902,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_cultura_1.jpg",
-            "https://example.com/images/plaza_cultura_2.jpg",
-            "https://example.com/images/plaza_cultura_3.jpg"
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
         ],
         rating: 4.6,
         price: 0,
@@ -915,9 +923,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_pueblo_1.jpg",
-            "https://example.com/images/plaza_pueblo_2.jpg",
-            "https://example.com/images/plaza_pueblo_3.jpg"
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         ],
         rating: 4.5,
         price: 0,
@@ -934,9 +944,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_mercado_1.jpg",
-            "https://example.com/images/plaza_mercado_2.jpg",
-            "https://example.com/images/plaza_mercado_3.jpg"
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
         ],
         rating: 4.4,
         price: 0,
@@ -953,9 +965,11 @@ export const placesInfo = [
         viewsCount: 0,
         savedAsFavoriteCount: 0,
         images: [
-            "https://example.com/images/plaza_fuente_1.jpg",
-            "https://example.com/images/plaza_fuente_2.jpg",
-            "https://example.com/images/plaza_fuente_3.jpg"
+            "https://images.unsplash.com/photo-1605771086192-286aba8706a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1638096879286-a8664ab3ed7f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cGxhemFzJTIwYnVlbm9zJTIwYWlyZXN8ZW58MHx8MHx8fDA%3D",
+            "https://images.unsplash.com/photo-1674481307459-00ac03a35a89?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHBsYXphcyUyMGJ1ZW5vcyUyMGFpcmVzfGVufDB8fDB8fHww",
+            "https://images.unsplash.com/photo-1708413798355-b49f718e291a?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "https://images.unsplash.com/photo-1707640385080-dccf42cddd44?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHBsYXphcyUyMGFyZ2VudGluYXxlbnwwfHwwfHx8MA%3D%3D",
         ],
         rating: 4.9,
         price: 0,
