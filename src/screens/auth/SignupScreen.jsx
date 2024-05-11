@@ -3,12 +3,15 @@ import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react
 import { useNavigation } from '@react-navigation/native';
 import { InputForm } from '../../components/ui/InputForm';
 import { SubmitButton } from '../../components/ui/SubmitButton';
+import { useSignUpMutation } from '../../services/authService';
 
 export const SignupScreen = () => {
 
     const navigation = useNavigation();
 
-    const [signup, setSignup] = useState({
+    const [triggerSignUp, result] = useSignUpMutation();
+
+    const [signUp, setSignup] = useState({
         email: "",
         errorMail: "",
         password: "",
@@ -18,11 +21,15 @@ export const SignupScreen = () => {
     });
 
     const handleSignup = () => {
-        console.log('Signup:', signup);
+        triggerSignUp({
+            email: signUp.email,
+            password: signUp.password,
+            returnSecureToken: true,
+        })
     };
 
     const handleChange = (key, value) => {
-        setSignup({ ...signup, [key]: value });
+        setSignup({ ...signUp, [key]: value });
     };
 
     return (
@@ -31,26 +38,26 @@ export const SignupScreen = () => {
                 <Text style={styles.title}>Registrate</Text>
                 <InputForm
                     placeholder="Email"
-                    value={signup.email}
+                    value={signUp.email}
                     onChangeText={(text) => handleChange('email', text)}
                 />
-                {signup.errorMail ? <Text style={styles.error}>{signup.errorMail}</Text> : null}
+                {signUp.errorMail ? <Text style={styles.error}>{signUp.errorMail}</Text> : null}
 
                 <InputForm
                     placeholder="Contraseña"
                     secureTextEntry
-                    value={signup.password}
+                    value={signUp.password}
                     onChangeText={(text) => handleChange('password', text)}
                 />
-                {signup.errorPassword ? <Text style={styles.error}>{signup.errorPassword}</Text> : null}
+                {signUp.errorPassword ? <Text style={styles.error}>{signUp.errorPassword}</Text> : null}
 
                 <InputForm
                     placeholder="Confirmar contraseña"
                     secureTextEntry
-                    value={signup.confirmPassword}
+                    value={signUp.confirmPassword}
                     onChangeText={(text) => handleChange('confirmPassword', text)}
                 />
-                {signup.errorConfirmPassword ? <Text style={styles.error}>{signup.errorConfirmPassword}</Text> : null}
+                {signUp.errorConfirmPassword ? <Text style={styles.error}>{signUp.errorConfirmPassword}</Text> : null}
 
                 <SubmitButton
                     title="Signup"
