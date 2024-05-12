@@ -1,14 +1,12 @@
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, useWindowDimensions, Pressable } from 'react-native'
 import { colors } from '../../constants/colors';
-import { Ionicons } from "@expo/vector-icons"
-import { useFavouritePlace } from '../../hooks/useFavouritePlace';
+import { FavouriteIcon } from '../ui/FavouriteIcon';
 
 
 export const PlaceHeader = ({ title, images, placeId }) => {
     const { height: screenHeight } = useWindowDimensions();
     const navigation = useNavigation();
-    const { isAFavouritePlace, onTouchFavourite} = useFavouritePlace(placeId);
 
     return (
         <>
@@ -33,11 +31,7 @@ export const PlaceHeader = ({ title, images, placeId }) => {
                 </Pressable>
             </View>
 
-            <View style={styles.favouriteBtn}>
-                <Pressable onPress={ onTouchFavourite }>
-                    <Ionicons name="heart" size={33} color={isAFavouritePlace() ? "red" : "white"} />
-                </Pressable>
-            </View>
+            <FavouriteIcon isTouchable={true} placeId={ placeId } iconSize={33} customStyles={styles.favouriteBtn}/>
         </>
     )
 }
