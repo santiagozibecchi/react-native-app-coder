@@ -2,7 +2,7 @@ import { useNavigation } from "@react-navigation/native"
 import { PrincipalLayout } from "../../components/layout/PrincipalLayout"
 import { Title } from "../../components/ui/Title"
 import { FlatList } from "react-native"
-import { Util } from "../../utils/utils"
+import { PlacesUtil } from "../../utils/utils"
 import { PlaceList } from "../../components/places/PlaceList"
 import { Notice } from "../../components/ui/Notice"
 import { useGetPlacesByCategoryQuery } from "../../services/placeService"
@@ -20,11 +20,11 @@ export const PlaceScreenListCategory = ({ route }) => {
 
   return (
     <PrincipalLayout style={{ marginBottom: 40 }}>
-      <Title text={`Lista de ${Util.expandCategoryData(category).title}`} />
+      <Title text={`Lista de ${PlacesUtil.expandCategoryData(category).title}`} />
       {
         (places.length === 0)
           ? (<Notice
-            title={`No se han encontrado lugares para la categoría: ${Util.expandCategoryData(category).title}`}
+            title={`No se han encontrado lugares para la categoría: ${PlacesUtil.expandCategoryData(category).title}`}
             onPress={() => navigation.goBack()}
           />)
           :

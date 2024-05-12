@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from 'react-native'
 import { CategoryItem } from './CategoryItem';
 import { colors } from '../../constants/colors';
-import { Util } from '../../utils/utils';
+import { PlacesUtil } from '../../utils/utils';
 
 export const CategoryGrid = ({ categories, title }) => {
 
@@ -31,7 +31,7 @@ export const CategoryGrid = ({ categories, title }) => {
                 numColumns={2}
                 data={categories}
                 renderItem={({ item }) => (
-                    <CategoryItem category={Util.expandCategoryData(item)} width={140} height={140} />
+                    <CategoryItem category={PlacesUtil.expandCategoryData(item)} width={140} height={140} />
                 )}
                 keyExtractor={(item) => item}
                 showsVerticalScrollIndicator={false}
