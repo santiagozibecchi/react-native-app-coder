@@ -2,8 +2,6 @@ import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, useWindowDimensions, Pressable } from 'react-native'
 import { colors } from '../../constants/colors';
 import { Ionicons } from "@expo/vector-icons"
-import { useDispatch, useSelector } from 'react-redux';
-import { updateFavouritePlace } from '../../features/favourite/favouriteSlice';
 import { useFavouritePlace } from '../../hooks/useFavouritePlace';
 
 

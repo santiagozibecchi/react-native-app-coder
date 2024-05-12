@@ -1,12 +1,17 @@
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native'
 import { colors } from '../../constants/colors';
 import { Button } from '../ui/Button';
 import { useNavigation } from '@react-navigation/native';
 import { PLACE_COMPONENT } from '../../screens/places/place_component';
+import { useFavouritePlace } from '../../hooks/useFavouritePlace';
+import { Ionicons } from "@expo/vector-icons"
+
 
 export const PlaceList = ({ place }) => {
 
     const navigation = useNavigation();
+    const { isAFavouritePlace } = useFavouritePlace(place.id);
+
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
@@ -14,11 +19,14 @@ export const PlaceList = ({ place }) => {
                     style={styles.image}
                     source={{ uri: place.images[0] }}
                 />
+                <View style={styles.favouriteContainer}>
+                    <Ionicons name="heart" size={20} color={isAFavouritePlace() ? "red" : "white"} />
+                </View>
             </View>
             <View style={[styles.detailContainer, { backgroundColor: colors.primary, opacity: 0.8 }]}>
                 <View style={styles.placeContainer}>
                     <View>
-                        <Text style={{fontWeight: "bold"}}>{place.title}</Text>
+                        <Text style={{ fontWeight: "bold" }}>{place.title}</Text>
                         <Text>Rating: {place.rating}</Text>
                         <Text>Ciudad: {place.city}</Text>
                     </View>
@@ -78,5 +86,10 @@ const styles = StyleSheet.create({
         padding: 3,
         alignSelf: "flex-end",
         right: 5,
+    },
+    favouriteContainer: {
+        position: "absolute",
+        left: 8,
+        top: 8,
     }
 })
