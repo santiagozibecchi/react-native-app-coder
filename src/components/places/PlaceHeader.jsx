@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, useWindowDimensions, Pressable } from 'react-native'
 import { colors } from '../../constants/colors';
 import { Ionicons } from "@expo/vector-icons"
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateFavouritePlace } from '../../features/favourite/favouriteSlice';
 
 
@@ -10,11 +10,17 @@ export const PlaceHeader = ({ title, images, placeId }) => {
     const { height: screenHeight } = useWindowDimensions();
     const navigation = useNavigation();
     const dispatch = useDispatch();
+    const { favouritePlaceIds } = useSelector((state) => state.favourite.value);
 
     // TODO Lógica para guardar en favoritos empieza acá
     const onTouchFavourite = () => {
         console.log("onTouchFavourite");
         dispatch(updateFavouritePlace({placeId}));
+    }
+
+    const isAFavouritePlace = () => {
+        const isFavourite = favouritePlaceIds.findIndex((favId) => favId === placeId) !== -1;
+        return isFavourite;
     }
 
     return (
@@ -42,15 +48,9 @@ export const PlaceHeader = ({ title, images, placeId }) => {
 
             <View style={styles.favouriteBtn}>
                 <Pressable onPress={ onTouchFavourite }>
-                    <Ionicons name="heart" size={33} color={"white"} />
+                    <Ionicons name="heart" size={33} color={isAFavouritePlace() ? "red" : "white"} />
                 </Pressable>
             </View>
-
-            {/* <View style={styles.favouriteBtn}>
-                <Pressable onPress={() => onTouchFavourite(placeId)} >
-                    <Ionicons name="heart-outline" size={33} color={"white"} />
-                </Pressable>
-            </View> */}
         </>
     )
 }
