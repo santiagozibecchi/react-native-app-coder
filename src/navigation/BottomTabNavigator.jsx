@@ -5,6 +5,8 @@ import { StyleSheet, View } from 'react-native';
 import { Ionicons, MaterialIcons, AntDesign } from "@expo/vector-icons"
 import { colors } from '../constants/colors';
 import MyProfileStackNavigator from './ProfileStackNavigator';
+import FavouriteStackNavigator from './FavouriteStackNavigator';
+
 
 const Stack = createBottomTabNavigator();
 
@@ -54,6 +56,20 @@ export const BottomTabNavigator = () => {
                         return (
                             <View>
                                 <Ionicons name="person-circle-outline" size={24} color={focused ?  colors.itemSelected : colors.text} />
+                            </View>
+                        )
+                    },
+                }}
+            />
+            <Stack.Screen
+                name="favouriteStack"
+                component={FavouriteStackNavigator}
+                options={{
+                    title: "Favourite",
+                    tabBarIcon: ({ focused }) => {
+                        return (
+                            <View>
+                                <Ionicons name="star-outline" size={24} color={focused ?  colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
