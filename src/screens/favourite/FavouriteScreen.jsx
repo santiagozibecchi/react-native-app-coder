@@ -1,10 +1,16 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { PrincipalLayout } from '../../components/layout/PrincipalLayout'
+import { useSelector } from 'react-redux'
+import { FavouritePlace } from '../../components/favourite/FavouritePlace'
+import { Title } from '../../components/ui/Title';
 
 export const FavouriteScreen = () => {
+  const { favouritePlaceIds } = useSelector((state) => state.favourite.value);
+
   return (
-    <View>
-      <Text>FavouriteScreen</Text>
-    </View>
-  )
+    <PrincipalLayout>
+      <Title text='Tus favoritos' center/>
+      {favouritePlaceIds.map(favPlaceId => <FavouritePlace key={favPlaceId} favPlaceId={ favPlaceId } />)}
+    </PrincipalLayout>
+  );
 }
+

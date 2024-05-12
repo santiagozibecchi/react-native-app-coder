@@ -1,14 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
-import authReducer from "../features/user/userSlice"
+// Services
 import { authApi } from "../services/authService"
 import { placeAPI } from "../services/placeService"
 import { profileAPI } from "../services/profileService"
-
+// Reducers
+import authReducer from "../features/user/userSlice"
+import favouriteReducer from "../features/favourite/favouriteSlice"
 
 const store = configureStore({
     reducer: {
         auth: authReducer,
+        favourite: favouriteReducer,
         [authApi.reducerPath]: authApi.reducer,
         [placeAPI.reducerPath]: placeAPI.reducer,
         [profileAPI.reducerPath]: profileAPI.reducer,

@@ -3,7 +3,6 @@ import { PlaceHeader } from "../../components/places/PlaceHeader";
 import { PlaceDetails } from "../../components/places/PlaceDetails";
 import { useGetPlaceByIdQuery } from "../../services/placeService";
 
-
 export const PlaceDetailScreen = ({ route }) => {
 
   const { placeId } = route.params;
@@ -18,8 +17,9 @@ export const PlaceDetailScreen = ({ route }) => {
     return (
         <ScrollView>
         <PlaceHeader
-          title={place.title}
-          images={place.images}
+          title={ place.title }
+          images={ place.images }
+          placeId={ placeId }
         />
 
         <PlaceDetails {...place} />

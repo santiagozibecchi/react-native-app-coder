@@ -1,4 +1,4 @@
-import { Text, StyleSheet } from 'react-native'
+import { Text } from 'react-native'
 import { colors, globlalColors } from '../../constants/colors'
 
 export const Title = ({ text = "", center = false, customStyles }) => {

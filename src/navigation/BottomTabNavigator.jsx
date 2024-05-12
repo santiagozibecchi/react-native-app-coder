@@ -7,7 +7,6 @@ import { colors } from '../constants/colors';
 import MyProfileStackNavigator from './ProfileStackNavigator';
 import FavouriteStackNavigator from './FavouriteStackNavigator';
 
-
 const Stack = createBottomTabNavigator();
 
 export const BottomTabNavigator = () => {
