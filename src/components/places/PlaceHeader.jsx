@@ -4,24 +4,13 @@ import { colors } from '../../constants/colors';
 import { Ionicons } from "@expo/vector-icons"
 import { useDispatch, useSelector } from 'react-redux';
 import { updateFavouritePlace } from '../../features/favourite/favouriteSlice';
+import { useFavouritePlace } from '../../hooks/useFavouritePlace';
 
 
 export const PlaceHeader = ({ title, images, placeId }) => {
     const { height: screenHeight } = useWindowDimensions();
     const navigation = useNavigation();
-    const dispatch = useDispatch();
-    const { favouritePlaceIds } = useSelector((state) => state.favourite.value);
-
-    // TODO Lógica para guardar en favoritos empieza acá
-    const onTouchFavourite = () => {
-        console.log("onTouchFavourite");
-        dispatch(updateFavouritePlace({placeId}));
-    }
-
-    const isAFavouritePlace = () => {
-        const isFavourite = favouritePlaceIds.findIndex((favId) => favId === placeId) !== -1;
-        return isFavourite;
-    }
+    const { isAFavouritePlace, onTouchFavourite} = useFavouritePlace(placeId);
 
     return (
         <>
