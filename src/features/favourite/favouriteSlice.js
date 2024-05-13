@@ -16,10 +16,13 @@ export const favouriteSlice = createSlice({
             } else {
                 state.value.favouritePlaceIds.splice(favouriteIdIdex, 1)
             }
+        },
+        updateFavouritePlaceIds: (state, { payload }) => {
+            state.value.favouritePlaceIds = payload.favouritePlaceIds;
         }
     }
 })
 
-export const { updateFavouritePlace } = favouriteSlice.actions;
+export const { updateFavouritePlace, updateFavouritePlaceIds } = favouriteSlice.actions;
 
 export default favouriteSlice.reducer;
