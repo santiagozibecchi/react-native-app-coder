@@ -27,6 +27,9 @@ export const placeAPI = createApi({
                 return null
             }
         }),
+        getAllPlaces: builder.query({
+            query: () => `places.json`,
+        }),
 
         // Favourites Places
         getFavouritePlaceIds: builder.query({
@@ -51,6 +54,7 @@ export const {
     // Places By category
     useGetCategoriesQuery,
     useGetPlacesByCategoryQuery,
+    useGetAllPlacesQuery,
     // Places by id
     useGetPlaceByIdQuery,
     // Favourites Places
