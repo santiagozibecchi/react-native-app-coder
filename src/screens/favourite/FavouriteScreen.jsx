@@ -16,9 +16,3 @@ export const FavouriteScreen = () => {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginBottom: 60
-  }
-})
