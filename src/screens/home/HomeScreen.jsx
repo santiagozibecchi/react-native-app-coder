@@ -42,7 +42,7 @@ export const HomeScreen = () => {
         <Title text='Encuentra los lugares más cercanos a tu dirección' center />
 
         {
-          categories.map((category) => <Text key={category}>{placeByCategory[category].map((place) => (`${place.title}\n` ))}</Text>)
+          categories.map((category) => placeByCategory[category].map((place) => (placeByCategory[category].length > 2 && (<Text key={place.id}>{`${place.title}`}</Text>) )))
         }
 
       </PrincipalLayout>
