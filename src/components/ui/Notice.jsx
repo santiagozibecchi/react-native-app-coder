@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/colors';
 import { Button } from './Button';
 
-export const Notice = ({ title, subtitle, onPress }) => {
+export const Notice = ({ title, subtitle, onPress, textBtn = "Regresar" }) => {
     return (
         <View style={styles.container}>
             <Ionicons name="alert-circle-outline" size={32} color={colors.warning} />
@@ -13,7 +13,7 @@ export const Notice = ({ title, subtitle, onPress }) => {
 
             {onPress && (
                 <Button
-                    text={"Regresar"}
+                    text={textBtn}
                     onPress={onPress}
                     style={{
                         marginTop: 15
