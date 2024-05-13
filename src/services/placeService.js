@@ -2,7 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { baseUrl } from "../databases/realTimeDataBase"
 
 export const placeAPI = createApi({
-    reducerPath: "placeAPI", //Establish a unique name for the API
+    reducerPath: "placeAPI",
+    tagTypes: ['favouritePlaceIdsGet'], 
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
     endpoints: (builder) => ({
         getCategories: builder.query({
@@ -26,11 +27,33 @@ export const placeAPI = createApi({
                 return null
             }
         }),
+
+        // Favourites Places
+        getFavouritePlaceIds: builder.query({
+            query: (localId) => `favourites/${localId}.json`,
+            providesTags: ['favouritePlaceIdsGet']
+        }),
+        postFavouritePlaceIds: builder.mutation({
+            query: ({favouritePlaceIds, localId}) => ({
+                url: `favourites/${localId}.json`,
+                method: "PUT",
+                body: {
+                    favouritePlaceIds: favouritePlaceIds
+                },
+            }),
+            // Invalidates will trigger a refetch on favouritePlaceIdsGet, so will execute getProfileImage and update the state
+            invalidatesTags: ['favouritePlaceIdsGet'] 
+        }),
     }),
 })
 
 export const {
+    // Places By category
     useGetCategoriesQuery,
     useGetPlacesByCategoryQuery,
+    // Places by id
     useGetPlaceByIdQuery,
+    // Favourites Places
+    useGetFavouritePlaceIdsQuery,
+    usePostFavouritePlaceIdsMutation,
 } = placeAPI
