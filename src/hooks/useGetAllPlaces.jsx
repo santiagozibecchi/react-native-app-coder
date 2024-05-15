@@ -28,7 +28,8 @@ export const useGetImagePlaces = (placeId = null) => {
 
 
     useEffect(() => {
-        generateAnArrayOfUiImageCategories();
+        // TODO: if (!placeId) { } (Evitar hacer peticiones al backend si no fuera extrictamente necesario!)
+            generateAnArrayOfUiImageCategories();
     }, []);
 
     const generateAnArrayOfUiImageCategories = () => {
