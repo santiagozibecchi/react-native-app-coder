@@ -1,7 +1,7 @@
 import { View, Text, FlatList, Image, StyleSheet, Pressable } from 'react-native'
 import { PlacesUtil } from '../../utils/utils';
 
-export const HorizonalCarousel = ({ category, images }) => {
+export const HorizonalCarousel = ({ category, images, title }) => {
 
     return (
         <View
@@ -18,6 +18,7 @@ export const HorizonalCarousel = ({ category, images }) => {
                         }}
                     >
                         { PlacesUtil.expandCategoryData(category).title }
+                        { title && title }
                     </Text>
                 )
             }
