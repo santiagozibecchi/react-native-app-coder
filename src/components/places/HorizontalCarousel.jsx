@@ -3,6 +3,9 @@ import { PlacesUtil } from '../../utils/utils';
 
 export const HorizonalCarousel = ({ category, images, title }) => {
 
+    // VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent,
+    // shouldComponentUpdate, etc. { "contentLength": 5146.54541015625, "dt": 433259, "prevDt": 10086 }
+
     return (
         <View
             style={{ height: category ? 260 : 220 }}
