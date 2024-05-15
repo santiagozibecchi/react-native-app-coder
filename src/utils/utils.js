@@ -19,11 +19,11 @@ export const categoryKeyToExpandData = {
 
 export class PlacesUtil {
 
-    static expandCategoryData = (categoty) => {
-        if (!categoryKeyToExpandData[categoty]) {
-            throw new Error("Algo salio mal")
+    static expandCategoryData = (category) => {
+        if (!categoryKeyToExpandData[category]) {
+            throw new Error(`Algo salio mal: ${category}`)
         }
-        return categoryKeyToExpandData[categoty];
+        return categoryKeyToExpandData[category];
     }
 
 }

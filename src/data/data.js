@@ -24,25 +24,6 @@ export const categories = [
 
 export const placesInfo = [
     {
-        id: 1111111111,
-        title: "El Sabor del Tango",
-        description: "Sumérgete en la pasión del tango mientras disfrutas de exquisitos platos tradicionales argentinos.",
-        category: "restaurantes",
-        country: "Argentina",
-        adress: "Calle Defensa 123",
-        city: "Buenos Aires",
-        viewsCount: 0,
-        savedAsFavoriteCount: 0,
-        images: [
-            "https://example.com/images/tango_1.jpg",
-            "https://example.com/images/tango_2.jpg",
-            "https://example.com/images/tango_3.jpg"
-        ],
-        rating: 4.7,
-        price: 0,
-        requiresEntrancePayment: false,
-    },
-    {
         id: 2342343223,
         title: "Heladería del Sol",
         description: "Prueba los sabores más deliciosos de helado artesanal bajo el cálido sol de Argentina.",
