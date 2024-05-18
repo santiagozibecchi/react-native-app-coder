@@ -2,6 +2,8 @@ import { View, Text, FlatList, Image, StyleSheet, Pressable, ActivityIndicator }
 import { colors } from '../../constants/colors';
 import { useLoadImagesLazy } from '../../hooks/useLoadImagesLazy';
 import { memo } from 'react';
+import { Ionicons } from "@expo/vector-icons"
+
 
 
 export const RenderItem = memo(({ item }) => (
@@ -25,7 +27,7 @@ export const RenderItem = memo(({ item }) => (
     </Pressable>
 ));
 
-export const HorizonalCarousel = ({ title, images }) => {
+export const HorizonalCarousel = ({ title, images, isFavourite }) => {
 
     const { displayedImages, onLoadMoreImages, hasMoreImagesToLoad } = useLoadImagesLazy(images);
 
@@ -44,7 +46,7 @@ export const HorizonalCarousel = ({ title, images }) => {
                             marginBottom: 10,
                         }}
                     >
-                        {title}
+                        {title} { isFavourite ? (<Ionicons name="star" size={24} color={colors.primary}/>) : null}
                     </Text>
                 )
             }
