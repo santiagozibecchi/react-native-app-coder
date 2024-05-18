@@ -14,7 +14,7 @@ export const HomeScreen = () => {
         <Title text='Encuentra los lugares más cercanos a tu dirección' center />
 
         {
-          uiImagesCategory.map((ui) => <HorizonalCarousel category={ui.category} images={ui.images} />)
+          uiImagesCategory.map((ui) => <HorizonalCarousel key={ ui.title } title={ui.title} images={ui.images} />)
         }
 
       </PrincipalLayout>

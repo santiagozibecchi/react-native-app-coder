@@ -1,17 +1,19 @@
 import { View, Text, FlatList, Image, StyleSheet, Pressable } from 'react-native'
 import { PlacesUtil } from '../../utils/utils';
 
-export const HorizonalCarousel = ({ category, images, title }) => {
+export const HorizonalCarousel = ({ title, images }) => {
+
+    console.log({title});
 
     // VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent,
     // shouldComponentUpdate, etc. { "contentLength": 5146.54541015625, "dt": 433259, "prevDt": 10086 }
 
     return (
         <View
-            style={{ height: category ? 260 : 220 }}
+            style={{ height: title ? 260 : 220 }}
         >
             {
-                category && (
+                title && (
                     <Text
                         style={{
                             fontSize: 30,
@@ -20,8 +22,7 @@ export const HorizonalCarousel = ({ category, images, title }) => {
                             marginBottom: 10,
                         }}
                     >
-                        { PlacesUtil.expandCategoryData(category).title }
-                        { title && title }
+                        { title }
                     </Text>
                 )
             }
@@ -48,7 +49,7 @@ export const HorizonalCarousel = ({ category, images, title }) => {
                         </View>
                     </Pressable>
                 )}
-                keyExtractor={(item) => item.category}
+                keyExtractor={(_, index) => index}
                 horizontal
                 showsHorizontalScrollIndicator={false}
             />

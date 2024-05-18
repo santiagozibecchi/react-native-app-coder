@@ -32,3 +32,21 @@ export class FavouriteUtil {
 
     
 }
+
+
+export class Sort {
+
+    static orderAlphabetically = (entityCollection, property) => {
+        const entityCollectionSorted = entityCollection.sort((a, b) => {
+            if (a[property].toLowerCase() < b[property].toLowerCase()) {
+                // (-1) Para indicar que (a) debe ir antes que (b)
+                return -1;
+            }
+            if (a[property].toLowerCase() > b[property].toLowerCase()) {
+                return 1;
+            }
+            return 0;
+        });
+        return entityCollectionSorted;
+    }
+}

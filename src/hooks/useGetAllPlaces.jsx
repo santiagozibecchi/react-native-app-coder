@@ -1,5 +1,6 @@
 import { placesInfo } from '../data/data';
 import { useEffect, useState } from 'react';
+import { PlacesUtil, Sort } from '../utils/utils';
 
 export const fullData = placesInfo
 
@@ -36,13 +37,18 @@ export const useGetImagePlaces = (placeId = null) => {
         let allImagesByCategory = getImagenesFromCategoryPlaces();
         const categories = Object.keys(allImagesByCategory);
         const uiImageCategories = categories.map((category) => {
+
             return {
-                category: category,
+                title: PlacesUtil.expandCategoryData(category).title,
                 images: allImagesByCategory[category],
             }
         })
-        setUiImageCategories(uiImageCategories);
+        const uiImageCategoriesSorted = Sort.orderAlphabetically(uiImageCategories, 'title');
+
+        setUiImageCategories(uiImageCategoriesSorted);
     }
+
+
 
 
     return {
