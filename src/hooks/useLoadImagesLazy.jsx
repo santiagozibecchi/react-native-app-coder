@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 
 export const useLoadImagesLazy = (images) => {
     const allImagesRef = useRef(images);
@@ -14,6 +13,7 @@ export const useLoadImagesLazy = (images) => {
 
     return {
         displayedImages,
+        hasMoreImagesToLoad: allImagesRef.length === displayedImages.length,
 
         // Methods
         onLoadMoreImages,

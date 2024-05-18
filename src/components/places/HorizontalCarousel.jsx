@@ -5,7 +5,7 @@ import { useLoadImagesLazy } from '../../hooks/useLoadImagesLazy';
 
 export const HorizonalCarousel = ({ title, images }) => {
 
-    const { displayedImages, onLoadMoreImages } = useLoadImagesLazy(images)
+    const { displayedImages, onLoadMoreImages, hasMoreImagesToLoad } = useLoadImagesLazy(images)
 
 
 
@@ -52,7 +52,7 @@ export const HorizonalCarousel = ({ title, images }) => {
                     </Pressable>
                 )}
 
-                ListFooterComponent={() => (
+                ListFooterComponent={() => hasMoreImagesToLoad && (
                     <View style={{ height: 150, justifyContent: "center" }}>
                         <ActivityIndicator size={40} color={colors.primary} />
                     </View>
