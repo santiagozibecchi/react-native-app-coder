@@ -29,7 +29,6 @@ export const HorizonalCarousel = ({ title, images }) => {
 
     const { displayedImages, onLoadMoreImages, hasMoreImagesToLoad } = useLoadImagesLazy(images);
 
-    console.log({hasMoreImagesToLoad});
 
     return (
         <View
@@ -55,7 +54,7 @@ export const HorizonalCarousel = ({ title, images }) => {
                 keyExtractor={(_, index) => index.toString()}
                 renderItem={({ item }) => (<RenderItem item={ item } />)}
 
-                ListFooterComponent={() => hasMoreImagesToLoad && (
+                ListFooterComponent={() => hasMoreImagesToLoad() && (
                     <View style={{ height: 150, justifyContent: "center" }}>
                         <ActivityIndicator size={40} color={colors.primary} />
                     </View>
