@@ -26,8 +26,6 @@ export const useGetImagePlaces = (placeId = null) => {
         return imagesByCategory;
     }
 
-
-
     useEffect(() => {
         // TODO: if (!placeId) { } (Evitar hacer peticiones al backend si no fuera extrictamente necesario!)
             generateAnArrayOfUiImageCategories();
@@ -44,11 +42,8 @@ export const useGetImagePlaces = (placeId = null) => {
             }
         })
         const uiImageCategoriesSorted = Sort.orderAlphabetically(uiImageCategories, 'title');
-
         setUiImageCategories(uiImageCategoriesSorted);
     }
-
-
 
 
     return {

@@ -1,12 +1,21 @@
-import { View, Text, FlatList, Image, StyleSheet, Pressable } from 'react-native'
-import { PlacesUtil } from '../../utils/utils';
+import { useRef, useState } from 'react';
+import { View, Text, FlatList, Image, StyleSheet, Pressable, ActivityIndicator } from 'react-native'
+import { colors } from '../../constants/colors';
 
 export const HorizonalCarousel = ({ title, images }) => {
 
-    console.log({title});
+    const allImagesRef = useRef(images);
+    const incrementRef = useRef(4);
+    const intialImagesToLoad = images.slice(0, 4)
+    const [displayedImages, setDisplayedImages] = useState(intialImagesToLoad);
 
     // VirtualizedList: You have a large list that is slow to update - make sure your renderItem function renders components that follow React performance best practices like PureComponent,
     // shouldComponentUpdate, etc. { "contentLength": 5146.54541015625, "dt": 433259, "prevDt": 10086 }
+
+    const onLoadMoreImages = () => {
+        incrementRef.current += 4
+        setDisplayedImages(allImagesRef.current.slice(0, incrementRef.current));
+    }
 
     return (
         <View
@@ -22,13 +31,14 @@ export const HorizonalCarousel = ({ title, images }) => {
                             marginBottom: 10,
                         }}
                     >
-                        { title }
+                        {title}
                     </Text>
                 )
             }
 
             <FlatList
-                data={images}
+                data={displayedImages}
+                keyExtractor={(_, index) => index.toString()}
                 renderItem={({ item }) => (
                     <Pressable
                         onPress={() => { }}
@@ -49,9 +59,20 @@ export const HorizonalCarousel = ({ title, images }) => {
                         </View>
                     </Pressable>
                 )}
-                keyExtractor={(_, index) => index}
+
+                ListFooterComponent={() => (
+                    <View style={{ height: 150, justifyContent: "center" }}>
+                        <ActivityIndicator size={40} color={colors.primary} />
+                    </View>
+                )}
+
                 horizontal
                 showsHorizontalScrollIndicator={false}
+                onEndReached={onLoadMoreImages}
+                onEndReachedThreshold={0.6}
+                initialNumToRender={4}
+                windowSize={5}
+                maxToRenderPerBatch={4}
             />
 
         </View>
