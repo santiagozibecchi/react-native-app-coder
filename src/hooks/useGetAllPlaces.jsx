@@ -4,7 +4,7 @@ import { PlacesUtil, Sort } from '../utils/utils';
 
 export const fullData = placesInfo
 
-export const useGetImagePlaces = (placeId = null) => {
+export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
 
     // const { data: allPlaces, isSuccess } = useGetAllPlacesQuery();
 
@@ -35,13 +35,14 @@ export const useGetImagePlaces = (placeId = null) => {
         let allImagesByCategory = getImagenesFromCategoryPlaces();
         const categories = Object.keys(allImagesByCategory);
         const uiImageCategories = categories.map((category) => {
-
             return {
                 title: PlacesUtil.expandCategoryData(category).title,
                 images: allImagesByCategory[category],
             }
         })
-        const uiImageCategoriesSorted = Sort.orderAlphabetically(uiImageCategories, 'title');
+        const uiImageCategoriesToShow = uiImageCategories.slice(0, numberOfCategory);
+        const uiImageCategoriesSorted = Sort.orderAlphabetically(uiImageCategoriesToShow, 'title');
+
         setUiImageCategories(uiImageCategoriesSorted);
     }
 

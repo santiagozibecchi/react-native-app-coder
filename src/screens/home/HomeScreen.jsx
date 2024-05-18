@@ -6,7 +6,7 @@ import { useGetImagePlaces } from '../../hooks/useGetAllPlaces'
 
 export const HomeScreen = () => {
 
-  const { uiImagesCategory } = useGetImagePlaces();
+  const { uiImagesCategory } = useGetImagePlaces({numberOfCategory: 5});
 
   return (
     <ScrollView>
