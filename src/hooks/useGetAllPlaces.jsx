@@ -10,7 +10,7 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
 
     const [uiImagesCategory, setUiImageCategories] = useState([]);
 
-    const getImagenesFromCategoryPlaces = () => {
+    const groupAllImagesByCategory = () => {
         let imagesByCategory = {};
 
         fullData.forEach((place) => {
@@ -28,11 +28,11 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
 
     useEffect(() => {
         // TODO: if (!placeId) { } (Evitar hacer peticiones al backend si no fuera extrictamente necesario!)
-            generateAnArrayOfUiImageCategories();
+            generateUiImageCategories();
     }, []);
 
-    const generateAnArrayOfUiImageCategories = () => {
-        let allImagesByCategory = getImagenesFromCategoryPlaces();
+    const generateUiImageCategories = () => {
+        let allImagesByCategory = groupAllImagesByCategory();
         const categories = Object.keys(allImagesByCategory);
         const uiImageCategories = categories.map((category) => {
             return {
