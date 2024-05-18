@@ -36,7 +36,7 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
         const categories = Object.keys(allImagesByCategory);
         const uiImageCategories = categories.map((category) => {
             return {
-                title: PlacesUtil.expandCategoryData(category).title,
+                title: PlacesUtil.getExtraDetailFromCategory(category).title,
                 images: allImagesByCategory[category],
             }
         })

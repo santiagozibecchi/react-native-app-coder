@@ -1,5 +1,5 @@
 
-export const categoryKeyToExpandData = {
+export const categoryKeyToExtraDetail = {
     "cafes": { code: "cafes", title: "Cafés", img: "https://media.istockphoto.com/id/1351860620/es/foto/grupo-de-personas-brindando-caf%C3%A9-con-leche-en-la-azotea-del-bar-de-caf%C3%A9-amigos-hablando-y.jpg?s=1024x1024&w=is&k=20&c=DPobFeHYBaHqAbgvv_5_yU-_feVmS3QXa4cp0wr2MAU=" },
     "wine-bars": { code: "wine-bars", title: "Bares de vinos", img: "https://media.istockphoto.com/id/636002054/es/foto/damas-es-bar-con-vino-tinto.jpg?s=1024x1024&w=is&k=20&c=5jATw1_EIrtSQr74Cfm2_4KWDQyM6ZQEJ_XL0qmz6wU=" },
     "restaurants": { code: "restaurants", title: "Restaurantes", img: "https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
@@ -19,11 +19,11 @@ export const categoryKeyToExpandData = {
 
 export class PlacesUtil {
 
-    static expandCategoryData = (category) => {
-        if (!categoryKeyToExpandData[category]) {
+    static getExtraDetailFromCategory = (category) => {
+        if (!categoryKeyToExtraDetail[category]) {
             throw new Error(`Algo salio mal: ${category}`)
         }
-        return categoryKeyToExpandData[category];
+        return categoryKeyToExtraDetail[category];
     }
 
 }

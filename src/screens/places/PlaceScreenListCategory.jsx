@@ -20,11 +20,11 @@ export const PlaceScreenListCategory = ({ route }) => {
 
   return (
     <PrincipalLayout style={{ marginBottom: 40 }}>
-      <Title text={`Lista de ${PlacesUtil.expandCategoryData(category).title}`} />
+      <Title text={`Lista de ${PlacesUtil.getExtraDetailFromCategory(category).title}`} />
       {
         (places.length === 0)
           ? (<Notice
-            title={`No se han encontrado lugares para la categoría: ${PlacesUtil.expandCategoryData(category).title}`}
+            title={`No se han encontrado lugares para la categoría: ${PlacesUtil.getExtraDetailFromCategory(category).title}`}
             onPress={() => navigation.goBack()}
           />)
           :
