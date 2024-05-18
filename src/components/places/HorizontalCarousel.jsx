@@ -1,13 +1,35 @@
-import { useRef, useState } from 'react';
 import { View, Text, FlatList, Image, StyleSheet, Pressable, ActivityIndicator } from 'react-native'
 import { colors } from '../../constants/colors';
 import { useLoadImagesLazy } from '../../hooks/useLoadImagesLazy';
+import { memo } from 'react';
+
+
+export const RenderItem = memo(({ item }) => (
+    <Pressable
+        onPress={() => { }}
+        style={({ pressed }) => ({
+            height: 200,
+            width: 200,
+            marginHorizontal: 3,
+            paddingBottom: 20,
+            paddingHorizontal: 5,
+            opacity: pressed ? 0.9 : 1,
+        })}
+    >
+        <View style={styles.imageContainer}>
+            <Image
+                style={styles.image}
+                source={{ uri: item }}
+            />
+        </View>
+    </Pressable>
+));
 
 export const HorizonalCarousel = ({ title, images }) => {
 
-    const { displayedImages, onLoadMoreImages, hasMoreImagesToLoad } = useLoadImagesLazy(images)
+    const { displayedImages, onLoadMoreImages, hasMoreImagesToLoad } = useLoadImagesLazy(images);
 
-
+    console.log({hasMoreImagesToLoad});
 
     return (
         <View
@@ -31,26 +53,7 @@ export const HorizonalCarousel = ({ title, images }) => {
             <FlatList
                 data={displayedImages}
                 keyExtractor={(_, index) => index.toString()}
-                renderItem={({ item }) => (
-                    <Pressable
-                        onPress={() => { }}
-                        style={({ pressed }) => ({
-                            height: 200,
-                            width: 200,
-                            marginHorizontal: 3,
-                            paddingBottom: 20,
-                            paddingHorizontal: 5,
-                            opacity: pressed ? 0.9 : 1,
-                        })}
-                    >
-                        <View style={styles.imageContainer}>
-                            <Image
-                                style={styles.image}
-                                source={{ uri: item }}
-                            />
-                        </View>
-                    </Pressable>
-                )}
+                renderItem={({ item }) => (<RenderItem item={ item } />)}
 
                 ListFooterComponent={() => hasMoreImagesToLoad && (
                     <View style={{ height: 150, justifyContent: "center" }}>
