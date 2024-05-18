@@ -10,6 +10,7 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
 
     const [uiImagesCategory, setUiImageCategories] = useState([]);
 
+    // TODO Obtener de la base de datos, seria interesando customizarlo :)
     const favouriteCategories = ["ice-cream-parlors", "bars"]
 
     const groupAllImagesByCategory = () => {
@@ -29,7 +30,6 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
     }
 
     useEffect(() => {
-        // TODO: if (!placeId) { } (Evitar hacer peticiones al backend si no fuera extrictamente necesario!)
             generateUiImageCategories();
     }, []);
 

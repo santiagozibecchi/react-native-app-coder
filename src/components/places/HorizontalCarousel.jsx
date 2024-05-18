@@ -5,7 +5,6 @@ import { memo } from 'react';
 import { Ionicons } from "@expo/vector-icons"
 
 
-
 export const RenderItem = memo(({ item }) => (
     <Pressable
         onPress={() => { }}
