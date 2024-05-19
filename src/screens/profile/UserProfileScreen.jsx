@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image } from 'react-native'
+import { View, StyleSheet, Image, Text } from 'react-native'
 import React, { useContext } from 'react'
 import { PrincipalLayout } from '../../components/layout/PrincipalLayout'
 import { Title } from '../../components/ui/Title'
@@ -10,11 +10,14 @@ import { Button } from '../../components/ui/Button'
 import { truncateSessionsTable } from '../../persistence'
 import { clearUser } from '../../features/user/userSlice'
 import { ErrorContext } from '../../context/ErrorContext'
+import { setTheme } from '../../features/theme/themeSlice'
 
 export const UserProfileScreen = () => {
   const defaultImageRoute = "../../../assets/images/defaultProfile.png";
 
   const { showError } = useContext(ErrorContext);
+
+  const { colors, currentTheme } = useSelector((state) => state.theme.value);
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -33,6 +36,10 @@ export const UserProfileScreen = () => {
     } catch (error) {
       showError("Error al cerrar la sesión.")
     }
+  }
+
+  const onHandleSetTheme = (theme) => {
+    dispatch(setTheme(theme))
   }
 
   return (
@@ -74,6 +81,26 @@ export const UserProfileScreen = () => {
             text={"Cerrar sesión"}
             onPress={onSignOut}
           />
+
+          <Button
+            style={styles.btn}
+            text={"Tema claro"}
+            onPress={() => onHandleSetTheme("light")}
+          />
+
+          <Button
+            style={styles.btn}
+            text={"Tema oscuro"}
+            onPress={() => onHandleSetTheme("dark")}
+          />
+
+          <Text>
+            {JSON.stringify(colors, null, 2)}
+
+          </Text>
+          <Text>
+            {JSON.stringify(currentTheme, null, 2)}
+          </Text>
 
         </View>
 
