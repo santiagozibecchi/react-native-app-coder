@@ -21,9 +21,6 @@ export const FavouriteScreen = () => {
   const { localId } = useSelector((state) => state.auth.value);
   const { data: favouritePlaceIdsFromDB, isLoading, isSuccess } = useGetFavouritePlaceIdsQuery(localId);
 
-  // console.log({favouritePlaceIds});
-  // console.log({favouritePlaceIdsFromDB});
-  
   useEffect(() => {
     // Se ejecuta cuando se monta por primera vez y cuando se guarda nuevos ids en el array de
     // con la idea de manejar un solo estado para mostrar los favoritos
