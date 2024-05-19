@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ErrorContext } from "../context/ErrorContext";
 import * as ImagePicker from "expo-image-picker";
 import * as ExpoLibrary from "expo-media-library";
 
 const useImagePicker = () => {
+    const { showError } = useContext(ErrorContext);
+
     const [base64Image, setBase64Image] = useState(null);
     const [isImageFromCamera, setIsImageFromCamera] = useState(false);
     const [imageURI, setImageURI] = useState("");
@@ -31,9 +34,11 @@ const useImagePicker = () => {
                     const base64Image = `data:image/jpeg;base64,${result.assets[0].base64}`;
                     setBase64Image(base64Image);
                 }
+            } else {
+                showError("Permiso de cámara denegado.");
             }
         } catch (error) {
-            // TODO: componente de error: console.log(error);
+            showError("Error al tomar la foto. Por favor, inténtalo de nuevo.");
         }
     };
 
@@ -58,9 +63,11 @@ const useImagePicker = () => {
                     const base64Image = `data:image/jpeg;base64,${result.assets[0].base64}`;
                     setBase64Image(base64Image);
                 }
+            } else {
+                showError("Permiso de galería denegado.");
             }
         } catch (error) {
-            // TODO: componente de error: console.log(error);
+            showError("Error al seleccionar la foto de la galería. Por favor, inténtalo de nuevo.");
         }
     };
 
