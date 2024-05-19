@@ -6,6 +6,7 @@ import { useGetCategoriesQuery } from "../../services/placeService"
 
 import { ErrorContext } from '../../context/ErrorContext';
 import { useContext, useEffect } from 'react';
+import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
 
 export const PlacesScreen = () => {
 
@@ -20,6 +21,10 @@ export const PlacesScreen = () => {
             showError("Hubo un error al traer las categorías");
         }
     }, [error]);
+
+    if (isLoading) {
+        return <LoadingSpinner />
+    }
 
     return (
         <PrincipalLayout>
