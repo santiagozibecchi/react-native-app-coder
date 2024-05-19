@@ -34,6 +34,9 @@ export const placeAPI = createApi({
         // Favourites Places
         getFavouritePlaceIds: builder.query({
             query: (localId) => `favourites/${localId}.json`,
+            transformResponse: (response) => {
+                return response ? Object.values(response) : [];
+            },
             providesTags: ['favouritePlaceIdsGet']
         }),
         postFavouritePlaceIds: builder.mutation({
