@@ -94,14 +94,6 @@ export const UserProfileScreen = () => {
             onPress={() => onHandleSetTheme("dark")}
           />
 
-          <Text>
-            {JSON.stringify(colors, null, 2)}
-
-          </Text>
-          <Text>
-            {JSON.stringify(currentTheme, null, 2)}
-          </Text>
-
         </View>
 
       </View>
