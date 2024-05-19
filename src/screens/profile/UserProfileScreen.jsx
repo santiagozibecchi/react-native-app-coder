@@ -1,5 +1,5 @@
 import { View, StyleSheet, Image } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { PrincipalLayout } from '../../components/layout/PrincipalLayout'
 import { Title } from '../../components/ui/Title'
 import { useDispatch, useSelector } from 'react-redux'
@@ -9,9 +9,12 @@ import { PROFILE_COMPONENT } from './place_component'
 import { Button } from '../../components/ui/Button'
 import { truncateSessionsTable } from '../../persistence'
 import { clearUser } from '../../features/user/userSlice'
+import { ErrorContext } from '../../context/ErrorContext'
 
 export const UserProfileScreen = () => {
-  const defaultImageRoute = "../../../assets/images/defaultProfile.png"
+  const defaultImageRoute = "../../../assets/images/defaultProfile.png";
+
+  const { showError } = useContext(ErrorContext);
 
   const navigation = useNavigation();
   const dispatch = useDispatch();
@@ -28,7 +31,7 @@ export const UserProfileScreen = () => {
       const response = await truncateSessionsTable()
       dispatch(clearUser());
     } catch (error) {
-      // TODO: componente error: console.log({ errorSignOutDB: error });
+      showError("Error al cerrar la sesión.")
     }
   }
 

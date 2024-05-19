@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { InputForm } from '../../components/ui/InputForm';
@@ -8,8 +8,11 @@ import { useDispatch } from 'react-redux';
 import { setUser } from '../../features/user/userSlice';
 import { signInSchema } from '../../utils/validations/authSchema';
 import { insertSession } from '../../persistence';
+import { ErrorContext } from '../../context/ErrorContext';
 
 export const LoginScreen = () => {
+
+  const { showError } = useContext(ErrorContext);
 
   const navigation = useNavigation();
   // dispatch: disparar las acciones que se encuentras difinidas en los reducers
@@ -42,7 +45,7 @@ export const LoginScreen = () => {
           localId: signInResult.data.localId,
         }))
       }).catch((error) => {
-          // TODO componente para el manejo del error...
+        showError("Error: insertSession falló.");
       })
     }
   }, [signInResult])
@@ -55,7 +58,6 @@ export const LoginScreen = () => {
         password: signIn.password,
       });
     } catch (error) {
-      console.log({error});
       switch (error.path) {
         case "email":
           setErrorMessage({ ...errorMessage, errorMail: error.message })

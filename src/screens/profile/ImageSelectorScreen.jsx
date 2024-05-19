@@ -5,10 +5,13 @@ import { setCameraImage } from "../../features/user/userSlice";
 import { useGetProfileImageQuery, usePostProfileImageMutation } from "../../services/profileService";
 import { Title } from "../../components/ui/Title";
 import useImagePicker from "../../hooks/useImagePicker";
+import { useContext } from "react";
+import { ErrorContext } from "../../context/ErrorContext";
 
 export const ImageSelectorScreen = ({ navigation }) => {
     const defaultImageRoute = "../../../assets/images/defaultProfile.png";
 
+    const { showError } = useContext(ErrorContext);
     const { base64Image, isImageFromCamera, pickImageFromPhoneCamera, pickImageFromImageGallery, saveImageInPhoneGallery } = useImagePicker();
 
     const { localId } = useSelector((state) => state.auth.value);
@@ -26,7 +29,7 @@ export const ImageSelectorScreen = ({ navigation }) => {
             }
             navigation.goBack();
         } catch (error) {
-            console.log(error);
+            showError("Error al guardar la foto. Por favor, inténtalo de nuevo.")
         }
     };
 
