@@ -35,7 +35,7 @@ export const FavouriteScreen = () => {
 
   return (
     <ScrollView style={{ backgroundColor: colors.background }}>
-      <PrincipalLayout style={{ marginBottom: 40 }}>
+      <PrincipalLayout style={{ paddingBottom: 60 }}>
         <Title text='Tus favoritos' center />
         {
           (favouritePlaceIds.length === 0) ? (

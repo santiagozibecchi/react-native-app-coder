@@ -10,7 +10,7 @@ export const HomeScreen = () => {
 
   return (
     <ScrollView>
-      <PrincipalLayout style={{marginBottom: 40}}>
+      <PrincipalLayout style={{paddingBottom: 60}}>
         <Title text='Encuentra los lugares más cercanos a tu dirección' center />
 
         {
