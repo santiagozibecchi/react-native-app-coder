@@ -19,7 +19,7 @@ export const PlaceScreenListCategory = ({ route }) => {
   }
 
   return (
-    <PrincipalLayout style={{ marginBottom: 40 }}>
+    <PrincipalLayout style={{ paddingBottom: 60 }}>
       <Title text={`Lista de ${PlacesUtil.getExtraDetailFromCategory(category).title}`} />
       {
         (places.length === 0)
