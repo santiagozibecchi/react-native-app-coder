@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../constants/colors';
 import { Button } from './Button';
+import * as Icon from '../icons';
 
 export const Notice = ({ title, subtitle, onPress, textBtn = "Regresar" }) => {
     return (
         <View style={styles.container}>
-            <Ionicons name="alert-circle-outline" size={32} color={colors.warning} />
+            <Icon.Warn size={32} color={colors.warning} />
             <Text style={styles.title}>{title}</Text>
             {subtitle && <Text style={styles.subtitle}>{subtitle}</Text>}
 

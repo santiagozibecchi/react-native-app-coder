@@ -2,7 +2,7 @@ import { View, Text, FlatList, Image, StyleSheet, Pressable, ActivityIndicator }
 import { colors } from '../../constants/colors';
 import { useLoadImagesLazy } from '../../hooks/useLoadImagesLazy';
 import { memo } from 'react';
-import { Ionicons } from "@expo/vector-icons"
+import * as Icon from '../icons';
 
 
 export const RenderItem = memo(({ item }) => (
@@ -45,7 +45,7 @@ export const HorizonalCarousel = ({ title, images, isFavourite }) => {
                             marginBottom: 10,
                         }}
                     >
-                        {title} { isFavourite ? (<Ionicons name="star" size={24} color={colors.primary}/>) : null}
+                        {title} { isFavourite ? (<Icon.Favourite outline size={24} color={colors.primary}/>) : null}
                     </Text>
                 )
             }

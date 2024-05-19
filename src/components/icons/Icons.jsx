@@ -33,3 +33,18 @@ export const Favourite = ({ size, color, outline = false }) => {
     )
 }
 
+export const Warn = ({ size, color }) => {
+
+    return (
+        <Ionicons name="alert-circle-outline" size={size} color={color} />
+    )
+}
+
+export const Like = ({ size, color }) => {
+
+    return (
+        <Ionicons name="heart" size={size} color={color} />
+    )
+}
+
+
