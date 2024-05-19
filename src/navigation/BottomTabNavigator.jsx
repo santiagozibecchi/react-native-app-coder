@@ -2,10 +2,10 @@ import { PlacesStackNavigator } from './PlacesStackNavigator';
 import { HomeScreen } from '../screens/home/HomeScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, View } from 'react-native';
-import { Ionicons, MaterialIcons, AntDesign } from "@expo/vector-icons"
 import { colors } from '../constants/colors';
 import MyProfileStackNavigator from './ProfileStackNavigator';
 import FavouriteStackNavigator from './FavouriteStackNavigator';
+import * as Icon from '../components/icons';
 
 const Stack = createBottomTabNavigator();
 
@@ -26,7 +26,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <AntDesign name="home" size={24} color={focused ?  colors.itemSelected : colors.text} />
+                                <Icon.Home size={24} color={focused ?  colors.itemSelected : colors.text}/>
                             </View>
                         )
                     },
@@ -40,7 +40,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <MaterialIcons name="place" size={30} color={focused ? colors.itemSelected : colors.text} />
+                                <Icon.Place size={30} color={focused ? colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
@@ -54,7 +54,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <Ionicons name="person-circle-outline" size={24} color={focused ?  colors.itemSelected : colors.text} />
+                                <Icon.Profile size={24} color={focused ?  colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
@@ -68,7 +68,7 @@ export const BottomTabNavigator = () => {
                     tabBarIcon: ({ focused }) => {
                         return (
                             <View>
-                                <Ionicons name="star-outline" size={24} color={focused ?  colors.itemSelected : colors.text} />
+                                <Icon.Favourite size={24} color={focused ?  colors.itemSelected : colors.text} />
                             </View>
                         )
                     },
