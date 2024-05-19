@@ -7,6 +7,7 @@ import { useSignInMutation } from '../../services/authService';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../../features/user/userSlice';
 import { signInSchema } from '../../utils/validations/authSchema';
+import { insertSession } from '../../persistence';
 
 export const LoginScreen = () => {
 
@@ -27,13 +28,22 @@ export const LoginScreen = () => {
 
   useEffect(() => {
     if (signInResult.isSuccess) {
-      // seteamos el estado global del usuario
-      dispatch(setUser({
+      // Guardamos al usuario de forma persistente (en la "memoria" del celular)
+      insertSession({
         email: signInResult.data.email,
-        // idToken: ID único del usuario
-        idToken: signInResult.data.idToken,
-        localId: signInResult.data.localId,
-      }))
+        localId: signInResult.data.idToken,
+        token: signInResult.data.localId,
+      }).then(() => {
+        // seteamos el estado global del usuario
+        dispatch(setUser({
+          email: signInResult.data.email,
+          // idToken: ID único del usuario
+          idToken: signInResult.data.idToken,
+          localId: signInResult.data.localId,
+        }))
+      }).catch((error) => {
+          // TODO componente para el manejo del error...
+      })
     }
   }, [signInResult])
 
