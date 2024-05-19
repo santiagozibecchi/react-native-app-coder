@@ -8,27 +8,29 @@ import { Notice } from '../../components/ui/Notice';
 import { useNavigation } from '@react-navigation/native';
 import { PLACE_COMPONENT } from '../places/place_component';
 import { useGetFavouritePlaceIdsQuery } from '../../services/placeService';
-import { updateFavouritePlaceIds } from '../../features/favourite/favouriteSlice';
+import { updateFavouritePlace } from '../../features/favourite/favouriteSlice';
 import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
 
 export const FavouriteScreen = () => {
 
   const dispatch = useDispatch();
-  const navigate = useNavigation();
+  const navigation = useNavigation();
   const { colors } = useSelector((state) => state.theme.value);
 
   const { favouritePlaceIds } = useSelector((state) => state.favourite.value);
   const { localId } = useSelector((state) => state.auth.value);
-  const { data: favouritePlaceIdsFromDB, isLoading } = useGetFavouritePlaceIdsQuery(localId);
+  const { data: favouritePlaceIdsFromDB, isLoading, isSuccess } = useGetFavouritePlaceIdsQuery(localId);
 
+  // console.log({favouritePlaceIds});
+  // console.log({favouritePlaceIdsFromDB});
+  
   useEffect(() => {
     // Se ejecuta cuando se monta por primera vez y cuando se guarda nuevos ids en el array de
     // con la idea de manejar un solo estado para mostrar los favoritos
-    if (!isLoading && favouritePlaceIdsFromDB) {
-      dispatch(updateFavouritePlaceIds(favouritePlaceIdsFromDB));
+    if (isSuccess && (favouritePlaceIdsFromDB.length > 0)) {
+      dispatch(updateFavouritePlace(favouritePlaceIdsFromDB));
     }
-    // TODO: Reveer dependencias!
-  }, [isLoading, favouritePlaceIdsFromDB, dispatch]);
+  }, [isSuccess]);
 
   if (isLoading) {
     return <LoadingSpinner />
@@ -44,7 +46,12 @@ export const FavouriteScreen = () => {
               title={"No tienes favoritos guardados"}
               subtitle={"¿Desea ver las categorías?"}
               textBtn={"Ver"}
-              onPress={() => navigate.navigate(PLACE_COMPONENT.main_screen)}
+              /*
+                * Esto resuelve una advertencia de error: Dev notes: https://reactnavigation.org/docs/nesting-navigators/#navigating-to-a-screen-in-a-nested-navigator
+                Do you have a screen named 'PlacesScreen'?
+                ERROR  The action 'NAVIGATE' with payload {"name":"PlacesScreen"} was not handled by any navigator.
+              */
+              onPress={() => navigation.navigate("PlacesStack", { screen : PLACE_COMPONENT.main_screen})}
             />
           ) : (
             favouritePlaceIds.map((favPlaceId) => <FavouritePlace key={favPlaceId} favPlaceId={favPlaceId} />)
