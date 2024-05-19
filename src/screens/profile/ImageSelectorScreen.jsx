@@ -11,6 +11,8 @@ import { ErrorContext } from "../../context/ErrorContext";
 export const ImageSelectorScreen = ({ navigation }) => {
     const defaultImageRoute = "../../../assets/images/defaultProfile.png";
 
+    const { colors } = useSelector((state) => state.theme.value);
+
     const { showError } = useContext(ErrorContext);
     const { base64Image, isImageFromCamera, pickImageFromPhoneCamera, pickImageFromImageGallery, saveImageInPhoneGallery } = useImagePicker();
 
@@ -36,7 +38,7 @@ export const ImageSelectorScreen = ({ navigation }) => {
     return (
         <>
             {(base64Image || base64ImageFromDB) ? (
-                <View style={styles.container}>
+                <View style={[styles.container, { backgroundColor: colors.background }]}>
                     <Title text="Elige una foto de perfil" center customStyles={{ fontSize: 26 }} />
                     <Image source={{ uri: base64Image || base64ImageFromDB?.image }} style={styles.profileImage} />
                     <View style={styles.btnContainer}>
@@ -46,7 +48,7 @@ export const ImageSelectorScreen = ({ navigation }) => {
                     </View>
                 </View>
             ) : (
-                <View style={styles.container}>
+                <View style={[styles.container, { backgroundColor: colors.background }]}>
                     <Title text="Elige una foto de perfil" center customStyles={{ fontSize: 26 }} />
                     <View style={styles.noPhotoContainer}>
                         <Image
@@ -68,7 +70,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: "center",
-        marginTop: 20,
+        paddingTop: 20,
         gap: 20
     },
     profileImage: {

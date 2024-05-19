@@ -1,4 +1,4 @@
-import { View, StyleSheet, Image, Text } from 'react-native'
+import { View, StyleSheet, Image } from 'react-native'
 import React, { useContext } from 'react'
 import { PrincipalLayout } from '../../components/layout/PrincipalLayout'
 import { Title } from '../../components/ui/Title'
@@ -16,9 +16,6 @@ export const UserProfileScreen = () => {
   const defaultImageRoute = "../../../assets/images/defaultProfile.png";
 
   const { showError } = useContext(ErrorContext);
-
-  const { colors, currentTheme } = useSelector((state) => state.theme.value);
-
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
