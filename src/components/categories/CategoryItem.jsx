@@ -1,16 +1,16 @@
 import { View, Image, StyleSheet, Pressable, Text } from 'react-native'
-import { colors } from '../../constants/colors';
 import { useNavigation } from '@react-navigation/native';
 import { PLACE_COMPONENT } from '../../screens/places/place_component';
+import { useSelector } from 'react-redux';
 
 export const CategoryItem = ({ category, height, width }) => {
 
-    // TODO: Al presionar en una de las categorías tengo que traer todos los lugares de deicha categoria
     const navigation = useNavigation();
+    const { colors } = useSelector((state) => state.theme.value);
 
     return (
         <Pressable
-            onPress={() => navigation.navigate(PLACE_COMPONENT.list_category_screen, { category: category.code})}
+            onPress={() => navigation.navigate(PLACE_COMPONENT.list_category_screen, { category: category.code })}
             style={({ pressed }) => ({
                 height,
                 width,
@@ -20,11 +20,11 @@ export const CategoryItem = ({ category, height, width }) => {
                 opacity: pressed ? 0.9 : 1,
             })}
         >
-            { category.title && <Text style={[styles.text, { color: colors.text }]}>{ category.title }</Text>}
+            {category.title && <Text style={[styles.text, { color: colors.text }]}>{category.title}</Text>}
             <View style={styles.imageContainer}>
                 <Image
-                    style={[styles.image, {width, height}]}
-                    source={{uri: category.img}}
+                    style={[styles.image, { width, height }]}
+                    source={{ uri: category.img }}
                 />
             </View>
         </Pressable>

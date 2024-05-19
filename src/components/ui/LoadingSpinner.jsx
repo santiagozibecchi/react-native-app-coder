@@ -1,12 +1,14 @@
 import React from "react";
 import { View, ActivityIndicator, StyleSheet, Text } from "react-native";
-import { colors } from "../../constants/colors";
+import { useSelector } from "react-redux";
 
 export const LoadingSpinner = () => {
+    const { colors } = useSelector((state) => state.theme.value);
+
     return (
         <View style={styles.container}>
-            <ActivityIndicator size="large" color={ colors.primary } />
-            <Text style={[styles.loadingText, {color: colors.primary}]}>Cargando...</Text>
+            <ActivityIndicator size="large" color={colors.primary} />
+            <Text style={[styles.loadingText, { color: colors.primary }]}>Cargando...</Text>
         </View>
     );
 };

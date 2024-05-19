@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { StyleSheet, TextInput } from "react-native";
 
 export const InputForm = ({ placeholder, value, onChangeText, secureTextEntry, hasError }) => {

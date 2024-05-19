@@ -1,7 +1,11 @@
 import { Text, Pressable } from 'react-native'
-import { colors, globlalColors } from '../../constants/colors'
+import { globlalColors } from '../../constants/colors'
+import { useSelector } from 'react-redux';
 
-export const Button = ({ text, style, fontSize = null , onPress = () => { } }) => {
+export const Button = ({ text, style, fontSize = null, onPress = () => { } }) => {
+
+    const { colors } = useSelector((state) => state.theme.value);
+
     return (
         <Pressable
             style={({ pressed }) => ([
@@ -18,7 +22,7 @@ export const Button = ({ text, style, fontSize = null , onPress = () => { } }) =
                 ...globlalColors.btnPrimaryText,
                 color: colors.buttonTextColor,
                 fontSize: fontSize ? fontSize : null
-            }}>{ text }</Text>
+            }}>{text}</Text>
         </Pressable>
     )
 }

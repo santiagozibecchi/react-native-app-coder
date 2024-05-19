@@ -1,9 +1,11 @@
 import { View, Text, FlatList } from 'react-native'
 import { CategoryItem } from './CategoryItem';
-import { colors } from '../../constants/colors';
 import { PlacesUtil } from '../../utils/utils';
+import { useSelector } from 'react-redux';
 
 export const CategoryGrid = ({ categories, title }) => {
+
+    const { colors } = useSelector((state) => state.theme.value);
 
     return (
         <View style={{

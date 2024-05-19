@@ -1,14 +1,16 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
-import { colors } from '../../constants/colors';
 import { Button } from '../ui/Button';
 import { useNavigation } from '@react-navigation/native';
 import { PLACE_COMPONENT } from '../../screens/places/place_component';
 import { FavouriteIcon } from '../ui/FavouriteIcon';
+import { useSelector } from 'react-redux';
 
 
 export const PlaceList = ({ place }) => {
 
     const navigation = useNavigation();
+    const { colors } = useSelector((state) => state.theme.value);
+
 
     return (
         <View style={styles.container}>

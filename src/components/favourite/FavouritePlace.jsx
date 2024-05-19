@@ -1,10 +1,12 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
-import { colors } from '../../constants/colors';
 import { useGetPlaceByIdQuery } from '../../services/placeService'
+import { useSelector } from 'react-redux';
 
 export const FavouritePlace = ({ favPlaceId }) => {
 
   const { data: place, isLoading } = useGetPlaceByIdQuery(favPlaceId);
+  const { colors } = useSelector((state) => state.theme.value);
+
 
   if (isLoading) {
     return;

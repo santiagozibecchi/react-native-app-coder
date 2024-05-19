@@ -1,12 +1,14 @@
 import { useNavigation } from '@react-navigation/native';
 import { View, Text, Image, StyleSheet, useWindowDimensions, Pressable } from 'react-native'
-import { colors } from '../../constants/colors';
 import { FavouriteIcon } from '../ui/FavouriteIcon';
+import { useSelector } from 'react-redux';
 
 
 export const PlaceHeader = ({ title, images, placeId }) => {
     const { height: screenHeight } = useWindowDimensions();
     const navigation = useNavigation();
+    const { colors } = useSelector((state) => state.theme.value);
+
 
     return (
         <>
@@ -20,18 +22,18 @@ export const PlaceHeader = ({ title, images, placeId }) => {
                     </View>
                 </View>
 
-                <View style={styles.titleContainer}>
+                <View style={[styles.titleContainer, { backgroundColor: colors.primary }]}>
                     <Text style={styles.title}>{title}</Text>
                 </View>
             </View>
 
-            <View style={styles.backButton}>
+            <View style={[styles.backButton, { backgroundColor: colors.primary }]}>
                 <Pressable onPress={() => navigation.goBack()}>
                     <Text style={styles.backButtonText}>Regresar</Text>
                 </Pressable>
             </View>
 
-            <FavouriteIcon isTouchable={true} placeId={ placeId } iconSize={33} customStyles={styles.favouriteBtn}/>
+            <FavouriteIcon isTouchable={true} placeId={placeId} iconSize={33} customStyles={styles.favouriteBtn} />
         </>
     )
 }
@@ -73,7 +75,6 @@ const styles = StyleSheet.create({
         width: "auto",
         padding: 8,
         borderRadius: 18,
-        backgroundColor: colors.primary
     },
     title: {
         fontSize: 20,
@@ -85,7 +86,6 @@ const styles = StyleSheet.create({
         elevation: 9,
         top: 35,
         left: 10,
-        backgroundColor: colors.primary,
         borderRadius: 18,
         paddingHorizontal: 10,
         paddingVertical: 3

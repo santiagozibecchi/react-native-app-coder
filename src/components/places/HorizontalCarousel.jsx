@@ -1,7 +1,7 @@
 import { View, Text, FlatList, Image, StyleSheet, Pressable, ActivityIndicator } from 'react-native'
-import { colors } from '../../constants/colors';
 import { useLoadImagesLazy } from '../../hooks/useLoadImagesLazy';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import * as Icon from '../icons';
 
 
@@ -29,6 +29,7 @@ export const RenderItem = memo(({ item }) => (
 export const HorizonalCarousel = ({ title, images, isFavourite }) => {
 
     const { displayedImages, onLoadMoreImages, hasMoreImagesToLoad } = useLoadImagesLazy(images);
+    const { colors } = useSelector((state) => state.theme.value);
 
 
     return (
@@ -43,6 +44,7 @@ export const HorizonalCarousel = ({ title, images, isFavourite }) => {
                             fontWeight: "300",
                             marginLeft: 10,
                             marginBottom: 10,
+                            color: colors.text,
                         }}
                     >
                         {title} { isFavourite ? (<Icon.Favourite outline size={24} color={colors.primary}/>) : null}

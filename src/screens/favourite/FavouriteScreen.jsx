@@ -14,6 +14,7 @@ export const FavouriteScreen = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigation();
+  const { colors } = useSelector((state) => state.theme.value);
 
   const { favouritePlaceIds } = useSelector((state) => state.favourite.value);
   const { localId } = useSelector((state) => state.auth.value);
@@ -32,10 +33,9 @@ export const FavouriteScreen = () => {
   }
 
   return (
-    <ScrollView >
+    <ScrollView style={{ backgroundColor: colors.background }}>
       <PrincipalLayout style={{ marginBottom: 40 }}>
         <Title text='Tus favoritos' center />
-
         {
           (favouritePlaceIds.length === 0) ? (
             <Notice
@@ -44,8 +44,8 @@ export const FavouriteScreen = () => {
               textBtn={"Ver"}
               onPress={() => navigate.navigate(PLACE_COMPONENT.main_screen)}
             />
-          ): (
-            favouritePlaceIds.map((favPlaceId) => <FavouritePlace key={favPlaceId} favPlaceId={favPlaceId} />)   
+          ) : (
+            favouritePlaceIds.map((favPlaceId) => <FavouritePlace key={favPlaceId} favPlaceId={favPlaceId} />)
           )
         }
       </PrincipalLayout>
