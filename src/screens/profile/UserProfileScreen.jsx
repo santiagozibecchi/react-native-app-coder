@@ -2,22 +2,34 @@ import { View, StyleSheet, Image } from 'react-native'
 import React from 'react'
 import { PrincipalLayout } from '../../components/layout/PrincipalLayout'
 import { Title } from '../../components/ui/Title'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useGetProfileImageQuery } from '../../services/profileService'
 import { useNavigation } from '@react-navigation/native'
 import { PROFILE_COMPONENT } from './place_component'
 import { Button } from '../../components/ui/Button'
+import { truncateSessionsTable } from '../../persistence'
+import { clearUser } from '../../features/user/userSlice'
 
 export const UserProfileScreen = () => {
   const defaultImageRoute = "../../../assets/images/defaultProfile.png"
 
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const { imageCamera, localId } = useSelector((state) => state.auth.value);
   const { data: profileImageFromDB } = useGetProfileImageQuery(localId);
 
   const onLaunchCamera = () => {
     navigation.navigate(PROFILE_COMPONENT.image_selector)
+  }
+
+  const onSignOut = async () => {
+    try {
+      const response = await truncateSessionsTable()
+      dispatch(clearUser());
+    } catch (error) {
+      // TODO: componente error: console.log({ errorSignOutDB: error });
+    }
   }
 
   return (
@@ -28,7 +40,7 @@ export const UserProfileScreen = () => {
       <View style={styles.perfilContainer}>
 
         <View style={styles.imageContainer}>
-          { profileImageFromDB || imageCamera ? (
+          {profileImageFromDB || imageCamera ? (
             <Image
               source={{ uri: profileImageFromDB?.image || imageCamera }}
               style={styles.profileImage}
@@ -46,12 +58,18 @@ export const UserProfileScreen = () => {
         <View style={styles.configContainer}>
           <Button
             text={
-              ( profileImageFromDB || imageCamera )
+              (profileImageFromDB || imageCamera)
                 ? "Modificar la imagen de perfil"
                 : "Agregar imagen de perfil"
             }
             onPress={onLaunchCamera}
             style={styles.btn}
+          />
+
+          <Button
+            style={styles.btn}
+            text={"Cerrar sesión"}
+            onPress={onSignOut}
           />
 
         </View>
@@ -79,6 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 20,
     alignItems: "center",
+    gap: 5
   },
   profileImage: {
     width: "90%",
