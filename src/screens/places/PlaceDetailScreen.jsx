@@ -3,6 +3,7 @@ import { PlaceHeader } from "../../components/places/PlaceHeader";
 import { PlaceDetails } from "../../components/places/PlaceDetails";
 import { useGetPlaceByIdQuery } from "../../services/placeService";
 import { useSelector } from "react-redux";
+import { LoadingSpinner } from "../../components/ui/LoadingSpinner";
 
 export const PlaceDetailScreen = ({ route }) => {
 
@@ -12,8 +13,7 @@ export const PlaceDetailScreen = ({ route }) => {
   const { data: place, isLoading } = useGetPlaceByIdQuery(placeId);
 
   if (isLoading) {
-    // TODO loading component
-    return;
+    return <LoadingSpinner />
   }
 
     return (

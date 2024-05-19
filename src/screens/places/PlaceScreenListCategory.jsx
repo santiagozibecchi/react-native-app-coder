@@ -6,6 +6,7 @@ import { PlacesUtil } from "../../utils/utils"
 import { PlaceList } from "../../components/places/PlaceList"
 import { Notice } from "../../components/ui/Notice"
 import { useGetPlacesByCategoryQuery } from "../../services/placeService"
+import { LoadingSpinner } from "../../components/ui/LoadingSpinner"
 
 export const PlaceScreenListCategory = ({ route }) => {
   const navigation = useNavigation();
@@ -14,8 +15,7 @@ export const PlaceScreenListCategory = ({ route }) => {
   const { data: places, isLoading } = useGetPlacesByCategoryQuery(category);
 
   if (isLoading) {
-    // TODO componente loading
-    return;
+    return <LoadingSpinner />
   }
 
   return (

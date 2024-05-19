@@ -9,6 +9,7 @@ import { useNavigation } from '@react-navigation/native';
 import { PLACE_COMPONENT } from '../places/place_component';
 import { useGetFavouritePlaceIdsQuery } from '../../services/placeService';
 import { updateFavouritePlaceIds } from '../../features/favourite/favouriteSlice';
+import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
 
 export const FavouriteScreen = () => {
 
@@ -26,10 +27,11 @@ export const FavouriteScreen = () => {
     if (!isLoading && favouritePlaceIdsFromDB) {
       dispatch(updateFavouritePlaceIds(favouritePlaceIdsFromDB));
     }
+    // TODO: Reveer dependencias!
   }, [isLoading, favouritePlaceIdsFromDB, dispatch]);
 
   if (isLoading) {
-    return;
+    return <LoadingSpinner />
   }
 
   return (

@@ -1,15 +1,15 @@
 import { View, Text, StyleSheet, Image } from 'react-native'
 import { useGetPlaceByIdQuery } from '../../services/placeService'
 import { useSelector } from 'react-redux';
+import { LoadingSpinner } from '../ui/LoadingSpinner';
 
 export const FavouritePlace = ({ favPlaceId }) => {
 
   const { data: place, isLoading } = useGetPlaceByIdQuery(favPlaceId);
   const { colors } = useSelector((state) => state.theme.value);
 
-
   if (isLoading) {
-    return;
+    return <LoadingSpinner />
   }
 
   return (
