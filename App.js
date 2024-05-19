@@ -3,11 +3,13 @@ import { NavigatorContainer } from './src/navigation/NavigatorContainer';
 import { Provider } from 'react-redux';
 import store from './src/store';
 import { initSQLiteDB } from './src/persistence';
+import { ErrorProvider } from './src/context/ErrorContext';
+import { ErrorModal } from './src/components/ui/ErrorModal';
 
 // Creamos la tabla sessions si fuera necesario para el manejo de la sesion de forma persistente
-(async ()=> {
+(async () => {
   try {
-      const response = await initSQLiteDB()
+    const response = await initSQLiteDB()
   } catch (error) {
   }
 })()
@@ -16,7 +18,10 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Provider store={store}>
-        <NavigatorContainer />
+        <ErrorProvider>
+          <NavigatorContainer />
+          <ErrorModal />
+        </ErrorProvider>
       </Provider>
     </SafeAreaView>
   );
