@@ -6,12 +6,14 @@ import { useGetImagePlaces } from '../../hooks/useGetAllPlaces'
 
 export const HomeScreen = () => {
 
+  // Este customHook se encarga de generar una N cantidad de objetos en base a su categoría,
+  // para luego renderizar FlatLists (HorizonalCarousel) de forma dinámica
   const { uiImagesCategory } = useGetImagePlaces({numberOfCategory: 5});
 
   return (
     <ScrollView>
       <PrincipalLayout style={{paddingBottom: 60}}>
-        <Title text='Encuentra los lugares más cercanos a tu dirección' center />
+        <Title text='Galería de los lugares más cercanos a tu dirección' center />
 
         {
           uiImagesCategory.map((ui) => (
