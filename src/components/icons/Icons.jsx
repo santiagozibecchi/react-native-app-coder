@@ -22,10 +22,10 @@ export const Profile = ({ size, color }) => {
     )
 }
 
-export const Favourite = ({ size, color, outline = false }) => {
+export const Favourite = ({ size, color, outline = false, style }) => {
 
     if (outline) {
-        return <Ionicons name="star" size={size} color={color} />
+        return <Ionicons name="star" size={size} color={color} style={{...style}} />
     }
 
     return (
