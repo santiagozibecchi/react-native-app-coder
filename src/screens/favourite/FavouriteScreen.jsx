@@ -24,7 +24,7 @@ export const FavouriteScreen = () => {
   useEffect(() => {
     // Se ejecuta cuando se monta por primera vez y cuando se guarda nuevos ids en el array de
     // con la idea de manejar un solo estado para mostrar los favoritos
-    if (isSuccess && Array.isArray(favouritePlaceIdsFromDB) && (favouritePlaceIdsFromDB.length > 0)) {
+    if (isSuccess && Array.isArray(favouritePlaceIdsFromDB)) {
       dispatch(setFavouritePlaces(favouritePlaceIdsFromDB));
     }
   }, [isSuccess, favouritePlaceIdsFromDB, dispatch]);
