@@ -32,6 +32,7 @@ export const SignupScreen = () => {
             // seteamos el estado global del usuario
             dispatch(setUser({
                 email: signUpResult.data.email,
+                localId: signUpResult.data.localId,
                 // idToken: ID único del usuario
                 idToken: signUpResult.data.idToken,
             }))
