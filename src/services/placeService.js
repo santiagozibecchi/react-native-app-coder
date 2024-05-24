@@ -65,6 +65,13 @@ export const placeAPI = createApi({
         // * Categorías favoritas (El usuario tendrá la posibilidad de guardar como máximo 3 categorías favoritas)
         getFavouriteCategories: builder.query({
             query: (localId) => `favouriteCategories/${localId}.json`,
+            transformResponse: (response) => {
+                if (!response) {
+                    return [];
+                }
+                const favouritecategories = response ? Object.values(response).flat() : [];
+                return favouritecategories;
+            },
             providesTags: ['favouriteCategoriesGet']
         }),
         postFavouriteCategory: builder.mutation({

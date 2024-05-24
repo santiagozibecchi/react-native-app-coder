@@ -28,9 +28,8 @@ export const FavouriteCategoriesScreen = () => {
 
     useEffect(() => {
         if (favouriteCategories) {
-            // TODO: podría tranforma la respues para evitar esta haciendo (..)
             // Actualizamos categories (redux state) ni bien se monta el componente
-            dispatch(setCategories(favouriteCategories.favouriteCategories || []));
+            dispatch(setCategories(favouriteCategories || []));
         }
     }, [favouriteCategories, dispatch]);
 
