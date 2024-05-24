@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { PrincipalLayout } from '../../components/layout/PrincipalLayout';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategory, removeCategory, setCategories } from '../../features/favourite/favouriteCategorySlice';
 import { useGetCategoriesQuery, useGetFavouriteCategoriesQuery, usePostFavouriteCategoryMutation } from '../../services/placeService';
 import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
+import { CustomModal } from '../../components/ui/CustomModal';
 
 export const FavouriteCategoriesScreen = () => {
     const dispatch = useDispatch();
@@ -16,6 +17,8 @@ export const FavouriteCategoriesScreen = () => {
     const { data: favouriteCategories, isLoading, error } = useGetFavouriteCategoriesQuery(localId);
     const { data: allCategoriesAviable } = useGetCategoriesQuery();
 
+    const [showAdvice, setShowAdvice] = useState(false);
+    const [adviceMessage, setAdviceMessage] = useState('');
 
     useEffect(() => {
         if (favouriteCategories) {
@@ -30,6 +33,13 @@ export const FavouriteCategoriesScreen = () => {
         const isCategorySavedIt = categories.includes(category);
         // Solo permitimos guardar como máximo 3 categorías
         const canSaveCategory = Array.isArray(categories) && categories.length < 3 && !isCategorySavedIt;
+
+        if (!canSaveCategory) {
+            setAdviceMessage("Solo puedes agregar hasta 3 categorías");
+            setShowAdvice(true);
+            return;
+        }
+
         if (canSaveCategory) {
             const newCategories = [...categories, category];
             // Mandamos las categoría a firebase y luego actualizamos el estado local
@@ -79,6 +89,12 @@ export const FavouriteCategoriesScreen = () => {
                     )}
                 />
             </View>
+            {showAdvice && (
+                <CustomModal
+                    message={adviceMessage}
+                    onClose={() => setShowAdvice(false)}
+                />
+            )}
         </PrincipalLayout>
     );
 }
