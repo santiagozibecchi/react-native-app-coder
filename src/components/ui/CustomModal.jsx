@@ -27,10 +27,10 @@ export const CustomModal = ({ message, onClose }) => {
     return (
         <Modal transparent={true} animationType="fade">
             <View style={styles.modalContainer}>
-                <View style={styles.modalContent}>
-                    <Text style={[styles.messageText, { color: colors.primary } ]}>{message}</Text>
+                <View style={[styles.modalContent, { backgroundColor: colors.background }]}>
+                    <Text style={[styles.messageText, { color: colors.text } ]}>{message}</Text>
                     <TouchableOpacity style={[styles.closeButton, { backgroundColor: colors.primary }]} onPress={onClose}>
-                        <Text style={styles.closeButtonText}>Ok</Text>
+                        <Text style={[styles.closeButtonText, { color: colors.text }]}>Ok</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     modalContent: {
         width: 320,
         padding: 20,
-        backgroundColor: '#fff',
         borderRadius: 15,
         alignItems: 'center',
         shadowColor: '#000',
@@ -68,7 +67,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
     },
     closeButtonText: {
-        color: '#fff',
         fontSize: 16,
     },
 });

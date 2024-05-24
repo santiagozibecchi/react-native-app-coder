@@ -6,9 +6,11 @@ import { addCategory, removeCategory, setCategories } from '../../features/favou
 import { useGetCategoriesQuery, useGetFavouriteCategoriesQuery, usePostFavouriteCategoryMutation } from '../../services/placeService';
 import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
 import { CustomModal } from '../../components/ui/CustomModal';
+import { PlacesUtil } from '../../utils/utils';
 
 export const FavouriteCategoriesScreen = () => {
     const dispatch = useDispatch();
+    const { colors } = useSelector((state) => state.theme.value);
     const { localId } = useSelector((state) => state.auth.value);
     // Estado global de redux
     const categories = useSelector((state) => state.favouriteCategories.value.categories) || [];
@@ -67,22 +69,22 @@ export const FavouriteCategoriesScreen = () => {
     }
 
     return (
-        <PrincipalLayout>
+        <PrincipalLayout style={{paddingBottom: 40}}>
             <View style={styles.container}>
-                <Text style={styles.title}>Elige hasta 3 categorías favoritas</Text>
+                <Text style={[styles.title, { color: colors.text }]}>Elige hasta 3 categorías favoritas</Text>
                 <FlatList
                     data={allCategoriesAviable}
                     keyExtractor={(_, index) => index.toString()}
                     renderItem={({ item }) => (
                         <View style={styles.categoryItem}>
-                            <Text>{item}</Text>
+                            <Text style={[{ color: colors.text }] }>{PlacesUtil.getExtraDetailFromCategory(item).title}</Text>
                             {Array.isArray(categories) && categories.includes(item) ? (
                                 <TouchableOpacity onPress={() => handleRemoveCategory(item)}>
                                     <Text style={styles.removeButton}>Quitar de favoritos</Text>
                                 </TouchableOpacity>
                             ) : (
                                 <TouchableOpacity onPress={() => handleAddCategory(item)}>
-                                    <Text style={styles.addButton}>Agregar a favoritos</Text>
+                                    <Text style={[styles.addButton, { color: colors.primary }]}>Agregar a favoritos</Text>
                                 </TouchableOpacity>
                             )}
                         </View>
