@@ -1,18 +1,26 @@
-import { placesInfo } from '../data/data';
 import { useEffect, useState } from 'react';
 import { PlacesUtil, Sort } from '../utils/utils';
 import { useSelector } from 'react-redux';
-import { useGetFavouriteCategoriesQuery } from '../services/placeService';
-
-export const fullData = placesInfo;
+import { useGetAllPlacesQuery, useGetFavouriteCategoriesQuery } from '../services/placeService';
 
 export const useGetImagePlaces = ({ numberOfCategory, placeId = null }) => {
     const [uiImagesCategory, setUiImageCategories] = useState([]);
 
     const { localId } = useSelector((state) => state.auth.value);
-    const { data: favouriteCategories, isLoading, error } = useGetFavouriteCategoriesQuery(localId);
+    const { data: fullData, isLoading: isLoadingFullData, error: errorFullData } = useGetAllPlacesQuery();
+    const { data: favouriteCategories, isLoading: isLoadingFavCategories, error: errorFavCategories } = useGetFavouriteCategoriesQuery(localId);
 
-    if (isLoading || error) {
+    useEffect(() => {
+        // Devnotes: El objetivo es que se ejecute generateUiImageCategories solamente cuando fullData && favouriteCategories esten completamente listos
+        const isFullDataAndFavouriteCategoriesReadyToExecute = !isLoadingFullData && !errorFullData && !isLoadingFavCategories && !errorFavCategories && fullData && favouriteCategories;
+        if (isFullDataAndFavouriteCategoriesReadyToExecute) {
+            generateUiImageCategories();
+        }
+    }, [favouriteCategories, fullData]);
+
+    const isDataUnavailable = isLoadingFullData || isLoadingFavCategories || errorFullData || errorFavCategories || !fullData || !favouriteCategories;
+    if (isDataUnavailable) {
+        // prevenimos la ejecución del código con datos incompletos...
         return { uiImagesCategory };
     }
 
@@ -33,10 +41,6 @@ export const useGetImagePlaces = ({ numberOfCategory, placeId = null }) => {
         });
         return imagesByCategory;
     };
-
-    useEffect(() => {
-        generateUiImageCategories();
-    }, [favouriteCategories]);
 
     const generateUiImageCategories = () => {
         let allImagesByCategory = groupAllImagesByCategory();
