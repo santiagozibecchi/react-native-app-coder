@@ -8,12 +8,14 @@ import { profileAPI } from "../services/profileService"
 import authReducer from "../features/user/userSlice"
 import favouriteReducer from "../features/favourite/favouriteSlice"
 import themeReducer from "../features/theme/themeSlice"
+import favouriteCategoriesReducer from "../features/favourite/favouriteCategorySlice"
 
 const store = configureStore({
     reducer: {
         auth: authReducer,
         favourite: favouriteReducer,
         theme: themeReducer,
+        favouriteCategories: favouriteCategoriesReducer,
         [authApi.reducerPath]: authApi.reducer,
         [placeAPI.reducerPath]: placeAPI.reducer,
         [profileAPI.reducerPath]: profileAPI.reducer,

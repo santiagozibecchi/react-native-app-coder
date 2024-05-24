@@ -3,7 +3,7 @@ import { baseUrl } from "../databases/realTimeDataBase"
 
 export const placeAPI = createApi({
     reducerPath: "placeAPI",
-    tagTypes: ['favouritePlaceIdsGet'],
+    tagTypes: ['favouritePlaceIdsGet', 'favouriteCategoriesGet'],
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
     endpoints: (builder) => ({
         getCategories: builder.query({
@@ -61,6 +61,23 @@ export const placeAPI = createApi({
             // Invalidates will trigger a refetch on favouritePlaceIdsGet, so will execute getProfileImage and update the state
             invalidatesTags: ['favouritePlaceIdsGet']
         }),
+
+        // * Categorías favoritas (El usuario tendrá la posibilidad de guardar como máximo 3 categorías favoritas)
+        getFavouriteCategories: builder.query({
+            query: (localId) => `favouriteCategories/${localId}.json`,
+            providesTags: ['favouriteCategoriesGet']
+        }),
+        postFavouriteCategory: builder.mutation({
+            query: ({categories, localId}) => ({
+                url: `favouriteCategories/${localId}.json`,
+                method: "PUT",
+                body: {
+                    favouriteCategories: categories
+                },
+            }),
+            // Invalidates will trigger a refetch on favouriteCategoriesGet, so will execute getFavouriteCategories and update the state
+            invalidatesTags: ['favouriteCategoriesGet'] 
+        }),
     }),
 })
 
@@ -74,4 +91,7 @@ export const {
     // Favourites Places
     useGetFavouritePlaceIdsQuery,
     usePostFavouritePlaceIdsMutation,
+    // Categorias Favoritas
+    useGetFavouriteCategoriesQuery,
+    usePostFavouriteCategoryMutation,
 } = placeAPI

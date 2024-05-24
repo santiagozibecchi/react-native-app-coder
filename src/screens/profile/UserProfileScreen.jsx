@@ -39,6 +39,10 @@ export const UserProfileScreen = () => {
     dispatch(setTheme(theme))
   }
 
+  const onHandleNavigateToFavCategories = () => {
+    navigation.navigate(PROFILE_COMPONENT.favouriteCategories)
+  }
+
   return (
     <PrincipalLayout>
 
@@ -89,6 +93,12 @@ export const UserProfileScreen = () => {
             style={styles.btn}
             text={"Tema oscuro"}
             onPress={() => onHandleSetTheme("dark")}
+          />
+
+          <Button
+            style={styles.btn}
+            text={"Elegir categorias favoritas"}
+            onPress={onHandleNavigateToFavCategories}
           />
 
         </View>
