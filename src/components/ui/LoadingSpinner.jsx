@@ -8,7 +8,7 @@ export const LoadingSpinner = () => {
     return (
         <View style={styles.container}>
             <ActivityIndicator size="large" color={colors.primary} />
-            <Text style={[styles.loadingText, { color: colors.primary }]}>Cargando...</Text>
+            <Text style={[styles.loadingText, { color: colors.primary, backgroundColor: colors.background }]}>Cargando...</Text>
         </View>
     );
 };
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "rgba(255, 255, 255, 0.9)",
     },
     loadingText: {
         marginTop: 15,
