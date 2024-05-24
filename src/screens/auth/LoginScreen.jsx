@@ -34,8 +34,8 @@ export const LoginScreen = () => {
       // Guardamos al usuario de forma persistente (en la "memoria" del celular)
       insertSession({
         email: signInResult.data.email,
-        localId: signInResult.data.idToken,
-        token: signInResult.data.localId,
+        localId: signInResult.data.localId,
+        token: signInResult.data.idToken,
       }).then(() => {
         // seteamos el estado global del usuario
         dispatch(setUser({
