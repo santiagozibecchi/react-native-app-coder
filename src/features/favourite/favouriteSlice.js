@@ -4,17 +4,19 @@ export const favouriteSlice = createSlice({
     name: "favourite",
     initialState: {
         value: {
-            favouritePlaceIds: [], 
+            favouritePlaceIds: [],
         }
     },
     reducers: {
         updateFavouritePlace: (state, { payload }) => {
-            const favouriteIdIdex = state.value.favouritePlaceIds.findIndex((favId) => favId === payload.placeId);
-            const isFavIdSaved = favouriteIdIdex === -1;
-            if (isFavIdSaved) {
-                state.value.favouritePlaceIds.push(payload.placeId);
-            } else {
-                state.value.favouritePlaceIds.splice(favouriteIdIdex, 1)
+            const favouriteIdIndex = state.value.favouritePlaceIds.findIndex((favId) => favId === payload.placeId);
+            const isFavIdSaved = favouriteIdIndex === -1;
+            if (payload.placeId !== undefined && payload.placeId !== null) {
+                if (isFavIdSaved) {
+                    state.value.favouritePlaceIds.push(payload.placeId);
+                } else {
+                    state.value.favouritePlaceIds.splice(favouriteIdIndex, 1)
+                }
             }
         }
     }
