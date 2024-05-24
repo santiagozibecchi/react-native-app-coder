@@ -3,7 +3,7 @@ import { baseUrl } from "../databases/realTimeDataBase"
 
 export const placeAPI = createApi({
     reducerPath: "placeAPI",
-    tagTypes: ['favouritePlaceIdsGet'], 
+    tagTypes: ['favouritePlaceIdsGet'],
     baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
     endpoints: (builder) => ({
         getCategories: builder.query({
@@ -35,20 +35,31 @@ export const placeAPI = createApi({
         getFavouritePlaceIds: builder.query({
             query: (localId) => `favourites/${localId}.json`,
             transformResponse: (response) => {
-                return response ? Object.values(response) : [];
+                // Si el usuario en cuestión, jamas guardo un favorito, es decir, es nuevo en la aplicación, firebase nos devuelve como respuesta undefined
+                // lo cual puede romper la aplicación porque no es lo que esperamos
+                if (!response) {
+                    return [];
+                }
+                const favouriteids = response ? Object.values(response).flat() : [];
+                return favouriteids;
             },
             providesTags: ['favouritePlaceIdsGet']
         }),
         postFavouritePlaceIds: builder.mutation({
-            query: ({favouritePlaceIds, localId}) => ({
-                url: `favourites/${localId}.json`,
-                method: "PUT",
-                body: {
-                    favouritePlaceIds: favouritePlaceIds
-                },
-            }),
+            query: ({ favouritePlaceIds, localId }) => {
+                if (!favouritePlaceIds) {
+                    return;
+                }
+                return ({
+                    url: `favourites/${localId}.json`,
+                    method: "PUT",
+                    body: {
+                        favouritePlaceIds: favouritePlaceIds
+                    },
+                })
+            },
             // Invalidates will trigger a refetch on favouritePlaceIdsGet, so will execute getProfileImage and update the state
-            invalidatesTags: ['favouritePlaceIdsGet'] 
+            invalidatesTags: ['favouritePlaceIdsGet']
         }),
     }),
 })

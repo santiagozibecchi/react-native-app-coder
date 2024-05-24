@@ -14,8 +14,10 @@ export const useFavouritePlace = (placeId) => {
     }
 
     useEffect(() => {
-        triggerPostFavouritePlaceIds({ favouritePlaceIds, localId });
-    }, [favouritePlaceIds]);
+        if (favouritePlaceIds.length > 0 && localId) {
+            triggerPostFavouritePlaceIds({ favouritePlaceIds, localId });
+        }
+    }, [favouritePlaceIds, localId, triggerPostFavouritePlaceIds]);
     
 
     const isAFavouritePlace = () => {

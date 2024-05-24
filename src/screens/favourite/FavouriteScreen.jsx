@@ -8,7 +8,7 @@ import { Notice } from '../../components/ui/Notice';
 import { useNavigation } from '@react-navigation/native';
 import { PLACE_COMPONENT } from '../places/place_component';
 import { useGetFavouritePlaceIdsQuery } from '../../services/placeService';
-import { updateFavouritePlace } from '../../features/favourite/favouriteSlice';
+import { setFavouritePlaces } from '../../features/favourite/favouriteSlice';
 import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
 
 export const FavouriteScreen = () => {
@@ -24,10 +24,10 @@ export const FavouriteScreen = () => {
   useEffect(() => {
     // Se ejecuta cuando se monta por primera vez y cuando se guarda nuevos ids en el array de
     // con la idea de manejar un solo estado para mostrar los favoritos
-    if (isSuccess && (favouritePlaceIdsFromDB.length > 0)) {
-      dispatch(updateFavouritePlace(favouritePlaceIdsFromDB));
+    if (isSuccess && Array.isArray(favouritePlaceIdsFromDB) && (favouritePlaceIdsFromDB.length > 0)) {
+      dispatch(setFavouritePlaces(favouritePlaceIdsFromDB));
     }
-  }, [isSuccess]);
+  }, [isSuccess, favouritePlaceIdsFromDB, dispatch]);
 
   if (isLoading) {
     return <LoadingSpinner />

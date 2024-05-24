@@ -19,7 +19,6 @@ export const NavigatorContainer = () => {
                 const session = await getSession()
                 if (session.rows._array.length) {
                     const user = session.rows._array[0];
-                    console.log({user});
                     // Primero nos fijamos si el usario se encuentra guardado de forma persistente 
                     // Esto evita que el usario se este logeando continuamente cada vez que se pierde el estado de redux
                     dispatch(setUser({
