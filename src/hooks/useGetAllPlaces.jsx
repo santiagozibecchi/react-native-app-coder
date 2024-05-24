@@ -42,10 +42,7 @@ export const useGetImagePlaces = ({ numberOfCategory, placeId = null }) => {
         let allImagesByCategory = groupAllImagesByCategory();
         const categories = Object.keys(allImagesByCategory);
         const uiImageCategories = categories.map((category) => {
-            let isFavourite = false;
-            if (favouriteCategoriesArray.includes(category)) {
-                isFavourite = true;
-            }
+            let isFavourite = favouriteCategoriesArray.includes(category);
 
             return {
                 category: category,
