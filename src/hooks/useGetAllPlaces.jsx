@@ -1,17 +1,22 @@
 import { placesInfo } from '../data/data';
 import { useEffect, useState } from 'react';
 import { PlacesUtil, Sort } from '../utils/utils';
+import { useSelector } from 'react-redux';
+import { useGetFavouriteCategoriesQuery } from '../services/placeService';
 
-export const fullData = placesInfo
+export const fullData = placesInfo;
 
-export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
-
-    // const { data: allPlaces, isSuccess } = useGetAllPlacesQuery();
-
+export const useGetImagePlaces = ({ numberOfCategory, placeId = null }) => {
     const [uiImagesCategory, setUiImageCategories] = useState([]);
 
-    // TODO Obtener de la base de datos, seria interesando customizarlo :)
-    const favouriteCategories = ["ice-cream-parlors", "bars"]
+    const { localId } = useSelector((state) => state.auth.value);
+    const { data: favouriteCategories, isLoading, error } = useGetFavouriteCategoriesQuery(localId);
+
+    if (isLoading || error) {
+        return { uiImagesCategory };
+    }
+
+    const favouriteCategoriesArray = Array.isArray(favouriteCategories) ? favouriteCategories : [];
 
     const groupAllImagesByCategory = () => {
         let imagesByCategory = {};
@@ -19,27 +24,26 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
         fullData.forEach((place) => {
             const category = place.category;
             const images = place.images;
-            
+
             if (imagesByCategory[category]) {
                 imagesByCategory[category].push(...images);
             } else {
                 imagesByCategory[category] = [...images];
             }
-        })
+        });
         return imagesByCategory;
-    }
+    };
 
     useEffect(() => {
-            generateUiImageCategories();
-    }, []);
+        generateUiImageCategories();
+    }, [favouriteCategories]);
 
     const generateUiImageCategories = () => {
         let allImagesByCategory = groupAllImagesByCategory();
         const categories = Object.keys(allImagesByCategory);
         const uiImageCategories = categories.map((category) => {
-
             let isFavourite = false;
-            if (favouriteCategories.includes(category)) {
+            if (favouriteCategoriesArray.includes(category)) {
                 isFavourite = true;
             }
 
@@ -48,22 +52,24 @@ export const useGetImagePlaces = ({numberOfCategory, placeId = null}) => {
                 images: allImagesByCategory[category],
                 isFavourite: isFavourite,
                 title: PlacesUtil.getExtraDetailFromCategory(category).title,
-            }
-        })
+            };
+        });
 
-        // Favoritas
-        const favoutiteUiImageCategories = Sort.orderAlphabetically(uiImageCategories.filter((ui) => favouriteCategories.includes(ui.category)), 'title');
-        // No favoritas
-        const restUiImageCategories = uiImageCategories.filter((ui) => !favouriteCategories.includes(ui.category));
+        // Favourite categories
+        const favoutiteUiImageCategories = Sort.orderAlphabetically(
+            uiImageCategories.filter((ui) => favouriteCategoriesArray.includes(ui.category)),
+            'title'
+        );
+        // Non-favourite categories
+        const restUiImageCategories = uiImageCategories.filter((ui) => !favouriteCategoriesArray.includes(ui.category));
         const restUiImageCategoriesToShow = restUiImageCategories.slice(0, numberOfCategory);
         const restUiImageCategoriesSorted = Sort.orderAlphabetically(restUiImageCategoriesToShow, 'title');
         const finalUiImagesCategories = favoutiteUiImageCategories.concat(restUiImageCategoriesSorted);
-        
-        setUiImageCategories(finalUiImagesCategories);
-    }
 
+        setUiImageCategories(finalUiImagesCategories);
+    };
 
     return {
         uiImagesCategory,
-    }
-}
+    };
+};
