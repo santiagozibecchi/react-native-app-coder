@@ -7,9 +7,13 @@ import { useGetCategoriesQuery, useGetFavouriteCategoriesQuery, usePostFavourite
 import { LoadingSpinner } from '../../components/ui/LoadingSpinner';
 import { CustomModal } from '../../components/ui/CustomModal';
 import { PlacesUtil } from '../../utils/utils';
+import { useContext } from 'react';
+import { ErrorContext } from '../../context/ErrorContext';
 
 export const FavouriteCategoriesScreen = () => {
     const dispatch = useDispatch();
+
+    const { showError } = useContext(ErrorContext);
     const { colors } = useSelector((state) => state.theme.value);
     const { localId } = useSelector((state) => state.auth.value);
     // Estado global de redux
@@ -64,7 +68,7 @@ export const FavouriteCategoriesScreen = () => {
     }
 
     if (error) {
-        // TODO usar contextAPI
+        showError("Hubo un error al traer las categorías...")
         return <Text>Error</Text>;
     }
 
