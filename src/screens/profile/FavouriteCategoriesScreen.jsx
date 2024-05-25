@@ -16,10 +16,11 @@ export const FavouriteCategoriesScreen = () => {
     const {
         adviceMessage,
         allCategoriesAviable,
+        availableCategories,
+        categories,
         error,
         isLoading,
         showAdvice,
-        categories,
         // Methods
         handleAddCategory,
         handleRemoveCategory,
@@ -36,27 +37,36 @@ export const FavouriteCategoriesScreen = () => {
     }
 
     return (
-        <PrincipalLayout style={{paddingBottom: 40}}>
+        <PrincipalLayout style={{ paddingBottom: 40 }}>
             <View style={styles.container}>
                 <Text style={[styles.title, { color: colors.text }]}>Elige hasta 3 categorías favoritas</Text>
                 <FlatList
                     data={allCategoriesAviable}
-                    keyExtractor={(_, index) => index.toString()}
+                    keyExtractor={(category, index) => category + index.toString()}
                     renderItem={({ item }) => (
                         <View style={styles.categoryItem}>
                             <Text style={[{ color: colors.text }]}>{PlacesUtil.getExtraDetailFromCategory(item).title}</Text>
                             {Array.isArray(categories) && categories.includes(item) ? (
-                                <TouchableOpacity onPress={() => handleRemoveCategory(item)}>
+                                <TouchableOpacity
+                                    onPress={() => handleRemoveCategory(item)}
+                                >
                                     <Text style={styles.removeButton}>Quitar de favoritos</Text>
                                 </TouchableOpacity>
                             ) : (
-                                <TouchableOpacity onPress={() => handleAddCategory(item)}>
-                                    <Text style={[styles.addButton, { color: colors.primary }]}>Agregar a favoritos</Text>
+                                <TouchableOpacity
+                                    onPress={() => handleAddCategory(item)}
+                                    disabled={!availableCategories.includes(item)}
+                                >
+                                    {
+                                        !availableCategories.includes(item)
+                                            ? (<Text style={[styles.addButton, { ...styles.buttonDisabled }]}>No disponible</Text>)
+                                            : (<Text style={[styles.addButton, { color: colors.primary }]}>Agregar a favoritos</Text>)
+                                    }
                                 </TouchableOpacity>
                             )}
                         </View>
                     )}
-                    showsVerticalScrollIndicator={ false }
+                    showsVerticalScrollIndicator={false}
                 />
             </View>
             {showAdvice && (
@@ -92,5 +102,8 @@ const styles = StyleSheet.create({
     },
     addButton: {
         color: 'green',
+    },
+    buttonDisabled: {
+        color: "grey"
     },
 });

@@ -1,25 +1,25 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useGetCategoriesQuery, useGetFavouriteCategoriesQuery, usePostFavouriteCategoryMutation } from '../services/placeService';
+import { useGetAllPlacesQuery, useGetCategoriesQuery, useGetFavouriteCategoriesQuery, usePostFavouriteCategoryMutation } from '../services/placeService';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { addCategory, removeCategory, setCategories } from '../features/favourite/favouriteCategorySlice';
 
 export const useFavouriteCategoriesManage = () => {
 
-
-
     const dispatch = useDispatch();
 
     const { localId } = useSelector((state) => state.auth.value);
     // Estado global de redux
     const categories = useSelector((state) => state.favouriteCategories.value.categories) || [];
-
+    
     const [postFavouriteCategory] = usePostFavouriteCategoryMutation();
     const { data: favouriteCategories, isLoading, error } = useGetFavouriteCategoriesQuery(localId);
     const { data: allCategoriesAviable } = useGetCategoriesQuery();
+    const { data: AllPlaces, isLoading: isLoadingFullData, error: errorFullData } = useGetAllPlacesQuery();
 
     const [showAdvice, setShowAdvice] = useState(false);
     const [adviceMessage, setAdviceMessage] = useState('');
+    const [availableCategories, setAvailableCategories] = useState([]);
 
     useEffect(() => {
         if (favouriteCategories) {
@@ -27,6 +27,12 @@ export const useFavouriteCategoriesManage = () => {
             dispatch(setCategories(favouriteCategories || []));
         }
     }, [favouriteCategories, dispatch]);
+
+    useEffect(() => {
+        if (!isLoadingFullData && !errorFullData && AllPlaces) {
+            getAllAvailableCategories();
+        }
+    }, [AllPlaces])
 
     const handleAddCategory = async (category) => {
         // Si la categoría ya esta seteada en el estado no la volvemos a guardar
@@ -57,13 +63,25 @@ export const useFavouriteCategoriesManage = () => {
         }
     };
 
+    const getAllAvailableCategories = () => {
+        let categories = [];
+
+        AllPlaces.forEach((place) => {
+            if (!categories.includes(place.category)) {
+                categories.push(place.category)
+            }
+        })
+        setAvailableCategories(categories);
+    }
+
     return {
-        allCategoriesAviable,
-        isLoading,
-        error,
         adviceMessage,
-        showAdvice,
+        allCategoriesAviable,
+        availableCategories,
         categories,
+        error,
+        isLoading,
+        showAdvice,
 
         // Methods
         handleAddCategory,
